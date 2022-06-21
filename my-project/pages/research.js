@@ -18,6 +18,7 @@ const research = () => {
       <Head>
         <title>Research</title>
       </Head>
+      <p>Helo cr7</p>
     </div>
   )
 }
