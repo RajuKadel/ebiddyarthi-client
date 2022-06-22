@@ -43,81 +43,6 @@ const forgotpassword = () => {
     }
         , [isRoutingReady])
 
-
-
-    // useEffect(() => {
-    //     if (emailToaster) {
-    //         toast.loading('Validating Email', {
-    //             position: 'top-right',
-    //         })
-    //     }
-    //     if (!emailToaster) {
-    //         toast.dismiss()
-    //     }
-    // }, [emailToaster])
-    // useEffect(() => {
-    //     if (OTPToaster) {
-    //         const id = toast.loading('Validating OTP', {
-    //             position: 'top-right',
-    //             style: {
-    //                 background: '#bab9b5',
-    //                 color: '#ffffff'
-    //             },
-
-    //         })
-    //     }
-
-    //     if (!OTPToaster) {
-    //         toast.dismiss()
-    //     }
-    // }, [OTPToaster])
-    // useEffect(() => {
-    //     if (passwordToaster) {
-    //         const id = toast.success('Password Changed Successfully', {
-    //             position: 'top-right',
-    //             autoClose: 5000,
-    //             style: {
-    //                 background: '#148212',
-    //                 color: '#ffffff'
-    //             },
-
-    //         })
-    //     }
-    // }, [passwordToaster])
-    // useEffect(() => {
-    //     if (invalidCredentialToaster && resetPhase) {
-    //         const id = toast.error('Invalid Credentials', {
-    //             position: 'top-right',
-    //             autoClose: 3000,
-    //             style: {
-    //                 background: '#b50724',
-    //                 color: '#ffffff'
-    //             },
-    //         })
-    //     }
-    // }, [invalidCredentialToaster])
-    // useEffect(() => {
-    //     if (serverErrorToaster) {
-    //         const id = toast.error('Internal server error', {
-    //             position: 'top-right',
-    //             autoClose: 3000,
-
-    //         })
-    //     }
-    // }, [serverErrorToaster])
-    // useEffect(() => {
-    //     if (invalidOTPToaster && resetPhase) {
-    //         const id = toast.error('Invalid OTP', {
-    //             position: 'top-right',
-    //             autoClose: 3000,
-    //             style: {
-    //                 background: '#b50724',
-    //                 color: '#ffffff'
-    //             },
-
-    //         })
-    //     }
-    // }, [invalidOTPToaster])
     const handleChange = (e) => {
         if (e.target.name === 'otp') {
             setOtp(e.target.value)
@@ -143,18 +68,14 @@ const forgotpassword = () => {
                     color: '#ffffff'
                 },
             })
-            // alert('Please enter email')
         } else {
             const data = { email, type: 'forgotEmail' }
             dispatch(handleForgotEmail(email))
             dispatch(handleErrorToaster())
-            // dispatch(openEmailToaster(true))
             setIsLoading(true)
             const id = toast.loading('Validating email', {
                 position: 'top-right',
-
             })
-
             const dataEmailSubmit = await dispatch(forgotEmailSubmit(data))
             console.log(dataEmailSubmit)
             if (dataEmailSubmit?.payload?.data?.message === "success") {
@@ -181,7 +102,6 @@ const forgotpassword = () => {
             const data = { otp, email: email, type: 'newOTP' }
             dispatch(handleForgotEmail(email))
             dispatch(handleErrorToaster())
-            // dispatch(openOTPToaster(true))
             setIsLoading(true)
             const id = toast.loading('Validating OTP', {
                 position: 'top-right',
@@ -197,9 +117,6 @@ const forgotpassword = () => {
             setIsLoading(false)
         }
     }
-
-
-
     const handleSubmitPassword = async (e) => {
         e.preventDefault()
         if (!resetPassword) {
@@ -211,7 +128,6 @@ const forgotpassword = () => {
                     color: '#ffffff'
                 },
             })
-            // alert('Please enter new password')
         } else if (!confirmResetPassword) {
             toast.error('Please enter confirm password', {
                 position: 'top-right',
@@ -221,7 +137,6 @@ const forgotpassword = () => {
                     color: '#ffffff'
                 },
             })
-            // alert('Please confirm new password')
         } else if (resetPassword !== confirmResetPassword) {
             toast.error('Password and confirm password does not match', {
                 position: 'top-right',
@@ -235,7 +150,6 @@ const forgotpassword = () => {
         }
         else {
             const data = { resetPassword, confirmResetPassword, email: forgotEmail }
-            // dispatch(openPasswordToaster(true))
             setIsLoading(true)
             const id = toast.loading('Resetting password', {
                 position: 'top-right',
@@ -253,16 +167,10 @@ const forgotpassword = () => {
         }
 
     }
-
-
-
-
     const handleBackPage = () => {
         dispatch(facilitateHomeLogin())
         router.push('/')
     }
-
-
     return (
         <>
             <div className="-mt-12 -pl-2 flex justify-center items-center h-screen bg-gradient-to-r from-indigo-500">
@@ -297,7 +205,7 @@ const forgotpassword = () => {
                                         Proceed
                                     </button>
                                     <a
-                                        className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                                        className="inline-block align-baseline hover:cursor-pointer font-bold text-sm text-blue-500 hover:text-blue-800"
                                         onClick={handleBackPage}
                                     >
                                         {`${isRoutingReady ? 'Back to login' : 'Cancel Process'}`}
@@ -330,7 +238,7 @@ const forgotpassword = () => {
                                         Proceed
                                     </button>
                                     <a
-                                        className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                                        className="inline-block hover:cursor-pointer align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
                                         onClick={handleBackPage}
                                     >
                                         Cancel Process
@@ -377,7 +285,7 @@ const forgotpassword = () => {
                                         Proceed
                                     </button>
                                     <a
-                                        className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                                        className="inline-block hover:cursor-pointer align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
                                         onClick={handleBackPage}
                                     >
                                         Cancel Process

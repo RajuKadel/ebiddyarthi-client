@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import {
     handleResetPhase,
     logIn,
@@ -10,9 +10,6 @@ import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/router'
 const Loginform = () => {
     const router = useRouter()
-    // const {
-    //     toaster: { invalidCredentialToaster, userNotVerifiedToaster },
-    // } = useSelector((state) => state)
     const dispatch = useDispatch()
     const [loginData, setLoginData] = useState({
         email: '',
@@ -62,36 +59,7 @@ const Loginform = () => {
             }
         }
     }
-    // useEffect(() => {
-    //     if (invalidCredentialToaster) {
-    //         const id = toast.error('Invalid Credentials', {
-    //             position: 'top-right',
-    //             autoClose: 4000,
-    //             style: {
-    //                 background: '#148212',
-    //                 color: '#ffffff'
-    //             },
-    //         })
-    //     }
-    // }
-    //     , [invalidCredentialToaster])
-    // useEffect(() => {
-    //     if (userNotVerifiedToaster) {
-    //         const id = toast.error('Verify email through forgot password.', {
-    //             position: 'top-right',
-    //             autoClose: 4000,
-    //             style: {
-    //                 background: '#148212',
-    //                 color: '#ffffff'
-    //             },
-    //         })
-    //         if (!userNotVerifiedToaster) {
-    //             toast.dismiss()
-    //         }
 
-    //     }
-    // }
-    //     , [userNotVerifiedToaster])
     return (
         <form className="shadow-xl bg-slate-50 px-12  lg:px-20  pt-2 w-full  h-[80vh] lg:h-full lg:pb-14  mr-5">
             <div className="flex mt-20 md:mt-14 flex-row w-full items-end justify-center lg:justify-start "></div>
@@ -105,7 +73,6 @@ const Loginform = () => {
                     onChange={handleChange}
                 />
             </div>
-            {/* <!-- Password input --> */}
             <div className="mb-6">
                 <input
                     name="password"
@@ -124,7 +91,7 @@ const Loginform = () => {
                         dispatch(handleResetPhase())
                         router.push('/forgotpassword')
                     }}
-                    className="text-gray-800 hover:underline"
+                    className="text-gray-800 hover:underline hover:cursor-pointer"
                 >
                     Forgot password?
                 </span>
@@ -142,7 +109,7 @@ const Loginform = () => {
                     <a
                         onClick={() => dispatch(changeLogInState(false))}
                         href="#!"
-                        className="text-red-600 ml-1 hover:underline hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+                        className="text-red-600 ml-1 hover:cursor-pointer hover:underline hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                     >
                         Register
                     </a>

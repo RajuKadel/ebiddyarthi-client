@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
@@ -8,7 +8,8 @@ import { changeLogInState, signUp, handleErrorToaster, handleRegisterToaster } f
 const Register = ({ methods }) => {
   const dispatch = useDispatch()
   const router = useRouter()
-  const { isOTPReceivedFromRegistration } = useSelector((state) => state)
+  const [isLoading, setIsLoading] = useState(false);
+  // const { isOTPReceivedFromRegistration } = useSelector((state) => state)
   // useEffect(() => {
   //   if (isOTPReceivedFromRegistration) {
   //     router.push('/otpverify');
@@ -39,17 +40,24 @@ const Register = ({ methods }) => {
       const id = toast.loading('Registering User', {
         position: 'top-right',
       })
+      setIsLoading(true);
       const awaitRegister = await dispatch(signUp(data))
       console.log('awaitRegister', awaitRegister);
       if (awaitRegister?.payload?.data?.message == 'success') {
         toast.success('Registered successfully', { id: id })
+        router.push('/otpverify')
+      }
+      else if (awaitRegister?.payload?.data?.message == 'User already exists') {
+        toast.error('User already exists', { id: id })
+        // router.push('/otpverify')
       }
       else {
         toast.error('Something went wrong!', { id: id })
       }
-      if (isOTPReceivedFromRegistration) {
-        router.push('/otpverify')
-      }
+      // if (isOTPReceivedFromRegistration) {
+      //   router.push('/otpverify')
+      // }
+      setIsLoading(false)
 
     }
   }
@@ -121,9 +129,9 @@ const Register = ({ methods }) => {
                 name={'faculty'}
               />
             </div>
-            <Button text={'Register'} type='submit' />
+            <Button className={`${isLoading ? 'invisible' : ''}`} text={'Register'} type='submit' />
             <div className='flex justify-end mt-4 lg:mt-1'>
-              <p className='text-sm md:text-sm text-slate-500'>Already a user? <span onClick={() => dispatch(changeLogInState(true))} className='hover:underline cursor-pointer text-blue-500 hover:text-blue-600 font-semibold underline px-1 p-1'>Sign in</span></p>
+              <p className='text-sm md:text-sm text-slate-500'>Already a user? <span onClick={() => dispatch(changeLogInState(true))} className='hover:underline hover:cursor-pointer text-blue-500 hover:text-blue-600 font-semibold underline px-1 p-1'>Sign in</span></p>
             </div>
           </form>
         </div>
