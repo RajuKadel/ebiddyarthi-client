@@ -30,9 +30,9 @@ const scholarship = () => {
         {
             heading: 'Garib Tatha Jehendar Scholarship',
             description: `According to Centre for applied research and development (CARD) report:
-            pursuant to the memorandum of understanding between Asia development
+            Pursuant to the memorandum of understanding between Asia development
             foundation, Korea (ADF) and Tribhuvan university, institute of engineering (IOE).4
-            student 2 /2(boys/girls) from paranuchal engineering campus will get this
+            student 2/2 (boys/girls) from paranuchal engineering campus will get this
             scholarship. Particular student who selected for this scholarship will get Rs.9000
             per semester.`,
             image: '/merit.png',
