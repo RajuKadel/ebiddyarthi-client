@@ -100,7 +100,7 @@ const Loginform = () => {
             </div>
             <div className="mb-6 flex items-center bg-white border border-gray-300 rounded px-1">
                 <div className='bg-white  '>
-                    <RiLockPasswordFill className='h-5 w-5 text-slate-500' />
+                    <RiLockPasswordFill className='h-5 w-5 ml-2 text-slate-500' />
                 </div>
                 <input
                     name="password"
