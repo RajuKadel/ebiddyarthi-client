@@ -11,7 +11,6 @@ const abroadStudy = () => {
             router.push('/auth')
         }
     }, [])
-
     return (
         <>
             <div className={`transition-all ease-out duration-700 w-[80vw] h-[80vh]  ${activeSidebar ? 'lg:ml-64' : ''

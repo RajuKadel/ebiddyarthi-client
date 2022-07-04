@@ -28,11 +28,8 @@ const Admin = () => {
             const response = await axios.get(`${url}/getallusers`);
             if (response?.data?.responseArray?.length > 0) {
                 const data = response?.data?.responseArray
-                console.log(data);
                 setIsAllData(data);
-                console.log(isAllData)
                 const filter = data?.filter(item => item.type === 'scholarship');
-                console.log(filter);
                 setScholarshipData(filter);
             }
         }
@@ -73,11 +70,11 @@ const Admin = () => {
                 })
             }
             else if (data?.payload?.data?.message === 'success') {
-                setFormData({email:'',password:''})
+                setFormData({ email: '', password: '' })
                 setIsAdmin(true);
                 toast.success('Success', {
                     position: 'top-right',
-                    autoClose: 3000,
+                    autoClose: 3000
                 }
                 )
             }

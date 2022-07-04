@@ -98,7 +98,6 @@ const ScholarshipApply = () => {
       formData.append('type', type)
       setProgress(true)
       const url = 'https://ebiddyarthi-server.herokuapp.com'
-
       const data = await fetch(`${url}/photos`, {
         method: 'post',
         body: formData,
@@ -110,7 +109,7 @@ const ScholarshipApply = () => {
           autoClose: 3000,
           style: {
             background: '#287828',
-            color: '#248a24',
+            color: '#FFFFFF',
           },
         })
       } else {
@@ -128,9 +127,8 @@ const ScholarshipApply = () => {
   }
   return (
     <div
-      className={`  bg-slate-50  px-5 py-5 transition-all ease-out duration-700 mt-12  md:h-[92vh] ${
-        activeSidebar ? 'md:ml-64 pl-5' : 'md:pl-36'
-      }`}
+      className={`  bg-slate-50  px-5 py-5 transition-all ease-out duration-700 mt-12  md:h-[92vh] ${activeSidebar ? 'md:ml-64 pl-5' : 'md:pl-36'
+        }`}
     >
       {slug == 'ugc' && (
         <div>

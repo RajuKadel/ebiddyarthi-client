@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 const Introperson = ({ description, colour, image, name, position }) => {
     return (
-        <div className="w-full xl:max-w-[80vw] xl:mx-auto">
+        <div className="w-full xl:max-w-[80vw] lg:mx-auto">
             <section className=" bg-slate-700 pt-5">
                 <div className="container w-full">
                     <div
@@ -50,36 +50,35 @@ const Introperson = ({ description, colour, image, name, position }) => {
                  min-w-[300px]
                  xs:min-w-[368px]
                  sm:min-w-[508px]
-                 md:min-w-[630px]
-                 lg:min-w-fit
+                 md:min-w-[680px]
+                 lg:min-w-[780px]
                  2xl:min-w-[850px]
                  mx-auto
-                
+                mr-5
                  sm:p-6
                  "
                                     >
-                                        <div className=" w-[85vw] md:flex items-center">
+                                        <div className=" w-[85vw] lg:flex space-x-5 
+                                        items-center">
                                             <div
                                                 className="
-                       max-w-full
-                       md:max-w-fit
-                       lg:max-w-fit
-                       w-full
-                       md:mr-12
-                       lg:mr-14
-                       2xl:mr-16
-                       md:mb-0
+                    
                        relative
+                       h-[300px]
+                       w-[320px]
+                       md:ml-12
+                       md:h-[350px]
+                       md:w-[35vw]
+                        lg:min-w[30vw]
                        rounded-lg
                        "
-                                            >
+                                 >
                                                 <Image
                                                     src={image}
                                                     alt={"image"}
-                                                    height={'270'}
-                                                    width={'310'}
+                                                    layout={'fill'}
                                                     objectFit={'cover'}
-                                                    className="w-full rounded-lg"
+                                                    className="rounded-md mr-5"
                                                 />
                                             </div>
                                             <div className="w-full mb-6">
@@ -92,6 +91,8 @@ const Introperson = ({ description, colour, image, name, position }) => {
                              text-black text-base
                              sm:text-lg
                              mb-3
+                             mt-1
+                             lg:mr-24
 
                              `}
                                                     >
@@ -99,10 +100,10 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                                     </p>
                                                     <h4 className="
                                                     
-                                                    font-semibold text-purple-400 text-lg md:text-md xl:mr-5 xl:ml-[29vw]">
+                                                    font-semibold text-purple-400 text-lg md:text-md lg:mr-5 lg:ml-[24vw]">
                                                         ~{name}
                                                     </h4>
-                                                    <p className="text-purple-300 italic pl-4  text-md md:text-md xl:mr-5 xl:ml-[29vw]">
+                                                    <p className="text-purple-300 italic pl-4  text-md md:text-md lg:mr-5 lg:ml-[24vw]">
                                                         {position}
                                                     </p>
                                                 </div>

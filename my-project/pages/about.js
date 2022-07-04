@@ -17,33 +17,33 @@ const data = [
     image: '/mahesh.jpg',
     position: 'Founder, Content Creator & Manager',
     name: 'Mahesh Raj Joshi',
-    colour:'red'
+    colour: 'red'
   }, {
     description: ' Student of Mechanical engineering at IOE Purwanchal Campus Dharan,Co-founder and data analyst of the great digital learning platform e-bidhyarthi. Actually I handles most of the works on this platform to make the decision, arrangement of data, prediction and consequences of upcoming updates. ',
     image: '/lekhnath.jpg',
     position: 'Co-founder',
     name: 'Lekhnath Neupane',
-    colour:'cyan'
+    colour: 'cyan'
   },
   {
     description: ' Developer of E-biddyarthi at Web Platform,Student of Computer Engineering at IOE Purwanchal Campus,Dharan.I am so grateful to be part of this platform as a web developer and a support member.Wishing a successful moments forward to the core team for their outstanding motive and support to juniors.',
     image: '/neww.jpg',
     name: 'Raju kadel',
     position: 'Web Developer / Member',
-    colour:'green'
+    colour: 'green'
   },
   {
     description: 'Agricultural engineering student at IOE ERC . Team leader of higher himalaya project which is finalist of Qing innovation challenge and  attended ICYA (Germany) as a finalist of YCRAC organized by FAO and IAAS.',
     image: '/winnerdai.jpg',
     name: 'Samir Tiwari',
     position: 'Co-founder',
-    colour:'slate'
+    colour: 'slate'
   }, {
     description: 'Developer of E- Bidhyarthi Mobile App currently studying 3rd year BEI Engineering.',
     image: '/app.jpg',
     name: 'Shyam Kishor Pandit',
     position: 'CO-founder',
-    colour:'yellow'
+    colour: 'yellow'
   }
 ]
 const about = () => {
@@ -54,7 +54,6 @@ const about = () => {
       router.push('/auth')
     }
   }, [])
-
   return (
     <div className={`transition-all px-2  ease-out duration-700 bg-slate-100 ${activeSidebar ? 'lg:ml-64' : ''
       }`}>
@@ -62,17 +61,15 @@ const about = () => {
         <title>About</title>
       </Head>
       <div className="mb-5 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-200 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-
         <div className="p-5">
-         <div className="flex items-center space-x-2 pb-2">
-         <div className="relative h-12 w-12">
-            <Image src={'/logo.jpg'} layout={'fill'}/>
+          <div className="flex items-center space-x-2 pb-2">
+            <div className="relative h-12 w-12">
+              <Image src={'/logo.jpg'} layout={'fill'} />
+            </div>
+            <span >
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Ebiddyarthi</h5>
+            </span>
           </div>
-          <span >
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Ebiddyarthi</h5>
-          </span>
-         </div>
-          
           <p className="mb-3 italic font-normal text-gray-700 dark:text-gray-400 normal-case">
             E-bidhyarthi is a digital platform that acts as a medium to provide services to specified people to apply for scholarship programs being provided by different organizations and institutions through a single app. In short, it is a digital scholarship application app. Moreover, it is an advanced app that collects information about different organizations and their scholarship programs. It links these things with this e-scholar app to simplify the paperwork and save time that is being wasted just by waiting in the long queue. Simply, it is the development in digitalization following the time to make the daily life of people easy to get all the research, well information and access to apply to the scholarship programs. This platform is mainly centric on Nepalese students.also we provide notification about job opportunities like contain writing ,App developer ,UI designer etc
           </p>
@@ -88,11 +85,11 @@ const about = () => {
         <div>
         </div>
       </div>
-      <div className="max-w-80vw overflow-hidden" >
-        {data.map((item,index) => (
+      <div className="max-w-90vw overflow-hidden">
+        {data.map((item, index) => (
           <div key={index}>
-          <Introperson colour={item.colour} description={item.description} image={item.image} position={item.position} name={item.name} />
-            
+            <Introperson colour={item.colour} description={item.description} image={item.image} position={item.position} name={item.name} />
+
           </div>
         ))}
       </div>

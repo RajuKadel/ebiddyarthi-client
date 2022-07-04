@@ -72,12 +72,10 @@ const Sidebar = () => {
     }
     const handleSideClick = (e) => {
         e.preventDefault()
-        // router.push('/ecommerce')
         if (activeState && screenSize <= 900) {
             dispatch(changeActiveStateOfSidebar(false))
         }
     }
-
     return (
         <div
             className={`z-50 -mt-12 md:mt-0 transition-all ease-out duration-700 ${activeState ? 'left-0' : '-left-64'

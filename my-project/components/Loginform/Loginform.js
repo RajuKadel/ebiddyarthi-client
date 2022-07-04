@@ -23,7 +23,6 @@ const Loginform = () => {
     }
     const handleLogin = async (e) => {
         e.preventDefault()
-        console.log('loginData', loginData)
         if (loginData.email === '' || loginData.password === '') {
             toast.error('Please fill all the fields.', {
                 position: 'top-right',
@@ -40,7 +39,6 @@ const Loginform = () => {
             })
             dispatch(handleErrorToaster())
             const data = await dispatch(logIn(loginData))
-            console.log({ data }, 'login')
             if (data?.payload?.data?.message == 'User is not verified.') {
                 setIsLoading(false);
                 toast.error('Verify email through forgot password', { id: id })

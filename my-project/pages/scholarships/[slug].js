@@ -13,7 +13,6 @@ const ScholarshipDetail = () => {
             router.push('/auth')
         }
     }, [])
-    console.log(slug);
     return (
         <div
             className={`transition-all ease-out duration-700 pt-5 px-2 mt-12 bg-slate-100 ${activeSidebar ? 'lg:ml-64' : ''
