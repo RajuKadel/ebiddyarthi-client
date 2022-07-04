@@ -12,33 +12,15 @@ const grand = () => {
   }, [])
 
   return (
-    <div className={`transition-all ease-out duration-700 bg-slate-100 ${activeSidebar ? 'lg:ml-64' : ''
+    <div className={`transition-all ease-out duration-700 w-[80vw] h-[80vh]  ${activeSidebar ? 'lg:ml-64' : ''
       }`}>
       <Head>
         <title>Grand</title>
       </Head>
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-          praesentium, voluptates repellat vero similique unde molestiae
-          facere nostrum exercitationem dolore recusandae earum odit,
-          numquam asperiores quidem adipisci quae expedita ullam. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Magnam in
-          error, iure rem vero, suscipit maxime excepturi adipisci quibusdam
-          atque nobis placeat doloribus quasi neque libero quam, voluptatum
-          praesentium, voluptates repellat vero similique unde molestiae
-          facere nostrum exercitationem dolore recusandae earum odit,
-          numquam asperiores quidem adipisci quae expedita ullam. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Magnam in
-          error, iure rem vero, suscipit maxime excepturi adipisci quibusdam
-          atque nobis placeat doloribus quasi neque libero quam, voluptatum
-          praesentium, voluptates repellat vero similique unde molestiae
-          facere nostrum exercitationem dolore recusandae earum odit,
-          numquam asperiores quidem adipisci quae expedita ullam. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Magnam in
-          error, iure rem vero, suscipit maxime excepturi adipisci quibusdam
-          atque nobis placeat doloribus quasi neque libero quam, voluptatum
-          sed possimus?
+      <div className="w-full h-full flex justify-end items-center">
+        <p className="text-xl text-slate-600 mr-[31vw]">
+        Sorry,currently not available.
+
         </p>
       </div>
     </div>

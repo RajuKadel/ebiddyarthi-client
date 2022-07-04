@@ -6,29 +6,27 @@ const Slider = () => {
 
 
     return (
-        <div className="mb-12 w-screen md:w-[50vw] md:h-[81vh] ">
+        <div className="mt-11 w-screen md:w-[50vw] md:h-[81vh] ">
             <Carousel
                 showArrows={true}
                 autoPlay
                 infiniteLoop
                 showThumbs={false}
                 showStatus={false}
-            // onChange={onChange}
-            // onClickItem={onClickItem}
-            // onClickThumb={onClickThumb}
             >
                 <div>
-                    <img src="/berger.jpg" className='h-[80vh] object-cover'  />
+                    <Image src={"/getscholarship.jpg"} height={450} width={750} objectFit={'fill'} />
                 </div>
                 <div>
-                    <img src="/a.png" className='h-[80vh] object-cover' />
+                    <Image src={"/researchh.jpg"} height={600} width={1000} objectFit={'fill'} />
                 </div>
+
+
                 <div>
-                    <img src="/berger2.jpg" className='h-[80vh] object-cover'  />
+                    <Image src={"/internship.jpg"} height={450} width={750} objectFit={'fill'} />
                 </div>
-                <div>
-                    <img src="/money.webp" className='h-[80vh] object-cover'  />
-                </div>
+
+
             </Carousel>
         </div>
     )

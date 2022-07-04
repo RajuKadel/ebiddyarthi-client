@@ -1,9 +1,9 @@
 // import React from 'react'
 
-const Button = ({text}) => {
+const Button = ({ text, isLoading }) => {
   return (
     <div className="mt-1">
-          <button type="submit" className="
+      <button type="submit" className={`${isLoading ? 'invisible' : ''}
       w-full
       px-6
       py-2.5
@@ -20,7 +20,7 @@ const Button = ({text}) => {
       active:bg-green-800 active:shadow-lg
       transition
       duration-150
-      ease-in-out">{text}</button>
+      ease-in-out`}>{text}</button>
     </div>
   )
 }

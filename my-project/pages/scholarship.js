@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/router"
 import { useSelector } from 'react-redux'
 import Cardmerit from "../components/scholarshipcard/Cardmerit";
+import Head from 'next/head';
 const scholarship = () => {
     const router = useRouter()
     const { activeSidebar, token } = useSelector((state) => state)
@@ -41,12 +42,14 @@ const scholarship = () => {
     ]
     return (
         <>
-
             {token && (
                 <div
                     className={` lg:h-[92vh]  px-2 transition-all lg:overflow-hidden ease-out duration-700 pt-7 -mt-2 md:mt-5  bg-slate-100 ${activeSidebar ? 'lg:ml-64 ' : ''
                         }`}
                 >
+                     <Head>
+        <title>Scholarship</title>
+      </Head>
                     <div className={`ml-10 md:ml-0  pt-8 transition-all ease-out duration-700 grid gap-3 md:gap-2  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${!activeSidebar ? 'lg:ml-32 ' : 'ml-3'
                         }`}>
                         {scholarships.map(({ heading, description, image, isAvailable, route }, index) => (

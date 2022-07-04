@@ -12,11 +12,15 @@ const otpverify = () => {
     const [otp, setOtp] = useState('')
     const dispatch = useDispatch()
     const { isOTPReceivedFromRegistration, registrationData } = useSelector((state) => state)
+    useEffect(() => {
+        if (!isOTPReceivedFromRegistration) {
+            router.push('/auth');
+        }
+    }, [])
     const handleChange = (e) => {
         setOtp(e.target.value)
     }
     const handleVerify = async (e) => {
-        console.log('hello otpverify');
         e.preventDefault()
         if (otp === '') {
             toast.error('Please verify OTP', {
@@ -27,11 +31,9 @@ const otpverify = () => {
                     color: '#ffffff'
                 },
             })
-            // alert('Please enter OTP')
         } else {
             const data = { otp, email: registrationData?.email, type: 'ordinaryOTP' }
             dispatch(handleErrorToaster())
-            // dispatch(openOTPToasterOrdinary(true))
             const id = toast.loading('Validating OTP', {
                 position: 'top-right',
             })
@@ -41,11 +43,13 @@ const otpverify = () => {
                 setDisabled(true)
                 toast.success('OTP Verified Successfully', {
                     id: id
+
                 })
+                handleCancelOTPVerify()
+                router.push('/auth')
             }
             else {
                 toast.error('Invalid OTP', { id: id })
-                router.push('/auth')
             }
         }
         setOtp('')
@@ -73,11 +77,12 @@ const otpverify = () => {
                                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" placeholder="OTP" onChange={handleChange}
                                         />
                                     </div>
+                                    <p className='text-sm text-slate-600 pb-1'>Note: Please check on your spam section of your email,if code is not received.</p>
                                     <div className="flex items-center justify-between">
                                         <button onClick={handleVerify} className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${disabled ? 'invisible' : ''}`} type="button">
                                             Proceed
                                         </button>
-                                        <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" onClick={handleBackToLogin}
+                                        <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 cursor-pointer" onClick={handleBackToLogin}
                                         >
                                             Back to Login
                                         </a>

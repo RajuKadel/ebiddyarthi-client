@@ -1,33 +1,47 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { BiLogOut } from 'react-icons/bi'
+import { BiRefresh } from 'react-icons/bi'
+import { handleSignOutt } from '../../src/app/Slice';
 import { toast } from 'react-hot-toast';
-import { getAllUsers, handleAdminLogin,adminLogin } from '../../src/app/Slice';
+import { adminLogin } from '../../src/app/Slice';
 import Infocard from '../../components/infocard/Infocard';
 import Listcard from '../../components/listcard/Listcard';
 import axios from 'axios';
 const Admin = () => {
     const dispatch = useDispatch();
     const [isAllData, setIsAllData] = React.useState(null);
-    const { isAdmin } = useSelector((state) => state);
+    const [scholarshipData, setScholarshipData] = React.useState(null);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [refresh, setRefresh] = useState(false);
     const [formData, setFormData] = React.useState({
         email: '',
         password: ''
     });
     useEffect(() => {
+        dispatch(handleSignOutt());
+    }, [])
+    useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`http://localhost:8080/getallusers`);
-            setIsAllData(response);
-            console.log(isAllData);
-
+            const url = 'https://ebiddyarthi-server.herokuapp.com'
+            const response = await axios.get(`${url}/getallusers`);
+            if (response?.data?.responseArray?.length > 0) {
+                const data = response?.data?.responseArray
+                console.log(data);
+                setIsAllData(data);
+                console.log(isAllData)
+                const filter = data?.filter(item => item.type === 'scholarship');
+                console.log(filter);
+                setScholarshipData(filter);
+            }
         }
         if (isAdmin) {
             fetchData();
         }
-    }, [isAdmin])
+    }, [isAdmin, refresh])
     const handleSignOut = () => {
-        const admin = dispatch(handleAdminLogin());
-        console.log(admin);
+        setIsAdmin(false);
     }
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,7 +62,6 @@ const Admin = () => {
         }
         else {
             const data = await dispatch(adminLogin(formData));
-            console.log({ data });
             if (data?.payload?.data?.message == 'Invalid Credentials') {
                 toast.error('Invalid Credentials', {
                     position: 'top-right',
@@ -60,6 +73,8 @@ const Admin = () => {
                 })
             }
             else if (data?.payload?.data?.message === 'success') {
+                setFormData({email:'',password:''})
+                setIsAdmin(true);
                 toast.success('Success', {
                     position: 'top-right',
                     autoClose: 3000,
@@ -75,27 +90,31 @@ const Admin = () => {
                         color: '#ffffff'
                     },
                 })
-
-
-
             }
 
         }
     }
-
     return (
-        <div className='relative'>
-            {isAdmin ? (
+        <div className='relative mt-24 md:mt-0 '>
+            {isAdmin && isAllData && scholarshipData ? (
                 <div >
-                    <p onClick={handleSignOut} className='bg-black text-white text-lg fixed top-0 right-2 hover:bg-white hover:text-black cursor-pointer px-4 p-2 rounded-md'>Sign Out</p>
+                    <div onClick={handleSignOut} className='bg-black fixed top-0 right-2 cursor-pointer  px-4 p-2 rounded-md'>
+                        <button>
+                            <BiLogOut className='h-8 w-8 hover:text-yellow-400 text-blue-400' />
+                        </button>
+                    </div>
+                    <div onClick={() => setRefresh((prev) => !prev)} className='bg-black  fixed top-0 left-2 cursor-pointer px-4 p-2 rounded-md'>
+                        <button>
+                            <BiRefresh className=' h-8 w-8 hover:text-yellow-400 text-blue-400' />
+                        </button>
+                    </div>
                     <div>
-
                         <div className='md:flex h-full space-y-2 mr-7  md:mx-10 pr-10  -mt-20 pt-11 items-center justify-between'>
                             <div>
-                                <Infocard color='bg-blue-300' ends={'500'} title={'Registered Users'} />
+                                <Infocard color='bg-blue-300' data={isAllData} title={'Registered Users'} />
                                 <div className='mt-2 w-[100vw] h-[70vh] ml-2 overflow-hidden hover:overflow-y-scroll bg-slate-100 md:w-[31vw] rounded-md'>
                                     <div>
-                                        {isAllData?.data?.responseArray.map((item, index) => (
+                                        {isAllData?.map((item, index) => (
                                             <Listcard key={index} name={item.fullName} email={item.email} phone={item.phone}
                                                 faculty={item.faculty} bankName={item.bankName} bankAccountName={item.bankAccountName}
                                                 bankAccountNumber={item.bankAccountNumber}
@@ -103,33 +122,44 @@ const Admin = () => {
                                                 dateOfBirthInAD={item.dateOfBirthInAD}
                                                 isVerified={item.isVerified}
                                                 institute={item.institute}
-
+                                                showAccount={false}
+                                                date={item?.date}
                                             />
                                         ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <Infocard color='bg-green-300' data={scholarshipData} title={'Scholarship Applicants'} />
+                                <div className='mt-2 h-[70vh] w-[100vw] ml-2 bg-slate-100 overflow-hidden hover:overflow-y-scroll md:w-[31vw] rounded-md'>
+                                    <div>
+                                        {scholarshipData?.map((item, index) => (
+
+
+                                            <Listcard key={index} name={item.fullName} email={item.email} phone={item.phone}
+                                                faculty={item.faculty} bankName={item.bankName} bankAccountName={item.bankAccountName}
+                                                bankAccountNumber={item.bankAccountNumber}
+                                                dateOfBirthInBS={item.dateOfBirthInBS}
+                                                dateOfBirthInAD={item.dateOfBirthInAD}
+                                                isVerified={item.isVerified}
+                                                institute={item.institute}
+                                                showAccount={true}
+                                                date={item?.date}
+                                            />
+
+
+                                        )
+                                        )}
 
 
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <Infocard color='bg-green-300' ends={299} title={'Scholarship Applicants'} />
+                                <Infocard color='bg-purple-400' ends={0} title={'Interns'} />
                                 <div className='mt-2 h-[70vh] w-[100vw] ml-2 bg-slate-100 overflow-hidden hover:overflow-y-scroll md:w-[31vw] rounded-md'>
                                     <div>
-                                        <Listcard />
-                                        <Listcard />
-                                        <Listcard />
-                                        <Listcard />
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <Infocard color='bg-yellow-400' ends={377} title={'Interns'} />
-                                <div className='mt-2 h-[70vh] w-[100vw] ml-2 bg-slate-100 overflow-hidden hover:overflow-y-scroll md:w-[31vw] rounded-md'>
-                                    <div>
-                                        <Listcard />
-                                        <Listcard />
-                                        <Listcard />
-                                        <Listcard />
+                                        <p className='text-center text-slate-500 text-md'>No interns available</p>
                                     </div>
                                 </div>
 
@@ -162,7 +192,7 @@ const Admin = () => {
                                 <form>
 
                                     <div className='flex space-x-3 items-center mb-8'>
-                                        <Image src="/logo.jpg" height={'70'} width={'70'} />
+                                        <Image src={"/logo.jpg"} height={'70'} width={'70'} />
                                         <p className='text-blue-400 text-3xl font-medium'>Admin Login</p>
                                     </div>
 
@@ -185,7 +215,7 @@ const Admin = () => {
                                             value={formData.password}
                                             type="password"
                                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                            id="exampleFormControlInput2"
+                                            id="exampleFormControlInput23"
                                             placeholder="Password"
                                         />
                                     </div>
@@ -213,5 +243,4 @@ const Admin = () => {
         </div>
     )
 }
-
 export default Admin;

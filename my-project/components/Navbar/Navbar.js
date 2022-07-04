@@ -11,17 +11,13 @@ import { handleScreenSize } from '../../src/app/Slice'
 import Avatar from '@mui/material/Avatar'
 import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
-
-
 const Navbar = () => {
   const { token } = useSelector((state) => state)
   const router = useRouter()
   const dispatch = useDispatch()
   const {
     loginData,
-    resetPhase,
     activeSidebar: activeState,
-    navbarDropdown,
     activeNav,
     screenSize,
   } = useSelector((state) => state)
@@ -64,15 +60,12 @@ const Navbar = () => {
   }
   const handleLogOut = () => {
     dispatch(handleSignOut())
-    toast.success('Logged Out Successfully', {
+    toast.success('Success', {
       position: 'top-right',
       autoClose: 3000,
     })
-
     router.push('/auth')
   }
-  console.log(loginData?.result?.fullName[0]);
-
   return (
     <>
       {token && (
@@ -103,12 +96,11 @@ const Navbar = () => {
 
               <div className='flex items-center'>
                 <Avatar alt="Man"
-                  className=" h-5 w-5 bg-green-500" sx={{ bgcolor: 'black' }} >{loginData?.result?.fullName[0]}</Avatar>
+                  className=" h-5 w-5 bg-green-500" sx={{ bgcolor: 'black' }} >{loginData?.fullName[0]}</Avatar>
                 <MdKeyboardArrowDown
-                  // onClick={() => handleDropdown('userProfile')}
                   className=" ml-3 cursor-pointer text-xl text-cyan-500"
                 />
-                <p className='shadow-sm text-cyan-500 p-1 rounded-md'>Hey, {loginData?.result?.fullName.split(' ')[0]}</p>
+                <p className='shadow-sm text-cyan-500 p-1 rounded-md'>Hey, {loginData?.fullName?.split(' ')[0]}</p>
               </div>
               <div className='flex items-center'>
                 <BiLogOut className='h-8 w-8 cursor-pointer hover:text-red-400' onClick={handleLogOut} />
@@ -116,10 +108,6 @@ const Navbar = () => {
                 <span className='text-md text-black'>Sign out</span>
               </div>
             </div>
-            {/* {navbarDropdown?.cart && <p>Cart</p>}
-    {navbarDropdown?.chat && <p>chat</p>}
-    {navbarDropdown?.notification && <p>notification</p>}
-    {navbarDropdown?.userProfile && <p>profile</p>} */}
           </div>
         </div>
       )}

@@ -8,7 +8,7 @@ const Ugcdetail = () => {
     return (
         <div className="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div className='rounded-t-lg relative h-[40vh] w-full'>
-                <Image src='/ugc.png' layout='fill' objectFit='cover' alt="image" />
+                <Image src={'/ugc.png'} layout={'fill'} objectFit={'cover'} alt={"image"} />
             </div>
             <div className="p-5">
                 <a href="#">
@@ -28,63 +28,63 @@ const Ugcdetail = () => {
                     livelihood and semester fee 66000 (fee pay student) or (9000 for regular student)
                     per year for 4 year of engineering.
                 </p>
-                <p className='capitalize '>Scholarship per year distribution:
+                <div className='capitalize '>Scholarship per year distribution:
                     <p className='bg-green-400 w-fit px-1'>For full-fee:Rs.125000</p>
                     <p className='bg-green-400 w-fit mt-1 px-1'>For Regular:Rs.69000</p>
-                </p>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                </div>
+                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Faculty
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Seat No.
                                 </th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     Civil
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     48
                                 </td>
 
                             </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     Mechanical
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     24
                                 </td>
 
                             </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <tr className="bg-white border-b dark:bg-gray-800">
+                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     Electrical
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     48
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <tr className="bg-white border-b dark:bg-gray-800">
+                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     Computer
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     48
                                 </td>
                             </tr>
-                            <tr class="bg-white  dark:bg-gray-800">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <tr className="bg-white  dark:bg-gray-800">
+                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     Automobile
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     24
                                 </td>
                             </tr>

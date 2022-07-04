@@ -1,39 +1,31 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from "axios";
-const url = 'http://localhost:8080'
+// const url = 'http://localhost:8080'
+const url = 'https://ebiddyarthi-server.herokuapp.com'
 export const adminLogin = createAsyncThunk('adminLogin', async (data) => {
     const response = await axios.post(`${url}/admin/login`, data)
     return response
 }
-)
-
+);
 export const signUp = createAsyncThunk("sign_up", async (formData) => {
-    console.log(formData);
     const data = { ...formData, type: 'signupOTP' }
     const response = await axios.post(`${url}/signup`, data);
     return response;
-    // response.data(objects here in Nepal Time )
 });
 export const logIn = createAsyncThunk("sign_in", async (formData) => {
-    console.log(formData);
-    console.log('senttt');
     const response = await axios.post(`${url}/login`, formData);
     return response;
 });
 export const verifyOTP = createAsyncThunk("verify_OTP", async (formData) => {
-    console.log(formData);
     const response = await axios.post(`${url}/verify`, formData);
     return response;
 });
 export const forgotEmailSubmit = createAsyncThunk("forgot_email_submit", async (formData) => {
-    console.log(formData);
     const response = await axios.post(`${url}/checkuser`, formData);
     return response;
 });
 export const forgotPasswordSubmit = createAsyncThunk("reset_password", async (formData) => {
-    console.log(formData);
     const data = { ...formData }
-    console.log(data);
     const response = await axios.post(`${url}/resetpassword`, data);
     return response;
 });
@@ -45,22 +37,12 @@ const initialState = {
     isLogIn: true,
     loginData: null,
     registrationData: null,
-    isValidEmailFromServer: false,
-    isOTPVerified: false,
-    validOTP: '',
     resetPhase: false,
     isRoutingReady: false,
     isOTPReceivedFromRegistration: false,
-    isAdmin: false,
     forgotEmail: '',
-    forgotPassword: {
-        isForgotPasswordOTP: null,
-        isForgotPasswordEmail: null,
-        isNewResetPassword: null,
-        isPasswordSuccess: true
-    }
-}
-
+    forgotPassword: { isForgotPasswordEmail: null }
+};
 export const counterSlice = createSlice({
     name: 'counter',
     initialState,
@@ -69,10 +51,6 @@ export const counterSlice = createSlice({
             state.isAdmin = false
         },
 
-        handleForgotEmail: (state, action) => {
-            state.forgotEmail = action.payload;
-        }
-        ,
         changeActiveStateOfSidebar: (state, action) => {
             state.activeSidebar = action.payload;
         },
@@ -107,31 +85,27 @@ export const counterSlice = createSlice({
         handleLoginData: (state, action) => {
             state.loginData = action.payload;
         },
-        changeValidEmailFromServer: (state, action) => {
-            state.isValidEmailFromServer = action.payload;
-        },
-        changeOTPVerified: (state, action) => {
-            state.isOTPVerified = action.payload;
-        },
-
-        changeValidOTP: (state, action) => {
-            state.validOTP = action.payload;
-        },
         handleSignOut: (state, action) => {
             state.registrationData = null;
             state.loginData = null;
             state.token = '';
+        },
+        handleSignOutt: (state, action) => {
+            state.registrationData = null;
+            state.loginData = null;
+            state.token = '';
+            console.log('admin panel');
         },
         handleSnackbarOpen: (state, action) => {
             state.isSnackbarOpen = action.payload;
         },
 
         handleToken: (state, action) => {
-            console.log(action?.payload);
             state.token = action.payload;
         }
         ,
         handleResetPhase: (state, action) => {
+            state.forgotEmail = false;
             state.forgotPassword.isPasswordSuccess = false;
             state.isRoutingReady = false;
             state.forgotPassword.isForgotPasswordOTP = false;
@@ -145,6 +119,7 @@ export const counterSlice = createSlice({
             state.forgotPassword.isForgotPasswordOTP = false;
             state.resetPhase = false;
             state.isRoutingReady = true;
+            state.forgotEmail = false;
         },
         handleRoutingReady: (state, action) => {
             state.isRoutingReady = false;
@@ -158,9 +133,7 @@ export const counterSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(adminLogin.fulfilled, (state, action) => {
-            if (action.payload?.data?.message == "success") {
-                state.isAdmin = true;
-            }
+
         }
         ),
             builder.addCase(signUp.fulfilled, (state, action) => {
@@ -172,9 +145,9 @@ export const counterSlice = createSlice({
                 }
             }),
             builder.addCase(logIn.fulfilled, (state, action) => {
+                console.log(action.payload?.data);
                 if (action.payload?.data?.message === "success") {
                     state.loginData = action.payload?.data;
-                    console.log(action.payload?.data);
                     const token = action.payload?.data?.token;
                     state.token = token;
                 }
@@ -214,6 +187,6 @@ export const counterSlice = createSlice({
             )
     }
 });
-export const { handleToken, handleAdminLogin, handleRouteToAuth, handleRegisterToaster, handleForgotEmail, handleCancelOTPVerify, handleErrorToaster, makeToasterFalse, openOTPToasterOrdinary, openEmailToaster, openOTPToaster, openPasswordToaster, handleSnackbarOpen, handleRoutingReady, facilitateHomeLogin, handleResetPhase, changeActiveStateOfSidebar, handleSignOut, changeActiveStateOfNavbarDropdown, hideOtherNavDropdown, handleScreenSize, changeLogInState, handleLoginData, handleRegistrationData } = counterSlice.actions
+export const { handleSignOutt, handleToken, handleAdminLogin, handleRouteToAuth, handleRegisterToaster, handleCancelOTPVerify, handleErrorToaster, makeToasterFalse, openOTPToasterOrdinary, openEmailToaster, openOTPToaster, openPasswordToaster, handleSnackbarOpen, handleRoutingReady, facilitateHomeLogin, handleResetPhase, changeActiveStateOfSidebar, handleSignOut, changeActiveStateOfNavbarDropdown, hideOtherNavDropdown, handleScreenSize, changeLogInState, handleLoginData, handleRegistrationData } = counterSlice.actions
 
 export default counterSlice.reducer

@@ -38,7 +38,6 @@ const Signin = () => {
                 <div
                     className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-1"
                 >
-                    {/* carousel here */}
                     <div
                         className=" hidden  lg:block grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-16 mt-9 md:mb-0"
                     >
@@ -46,7 +45,7 @@ const Signin = () => {
                     </div>
                     <div className=" xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-3 md:mb-1">
                         <div className={`  ${isLogIn ? 'pt-5 bg-slate-50' : ''} pt-1 flex items-center justify-center`}>
-                            <Image src="/logo.jpg" className='mt-5' height={`${isLogIn ? '50' : '40'}`} width={`${isLogIn ? '50' : '40'}`} />
+                            <Image src={"/logo.jpg"} className='mt-5' height={`${isLogIn ? '50' : '40'}`} width={`${isLogIn ? '50' : '40'}`} />
                             <p className={`px-2 font-bold text-xl ${isLogIn ? 'text-slate-600' : 'text-cyan-500'} mr-6 mt-2`}>Ebiddyarthii</p>
 
                         </div>

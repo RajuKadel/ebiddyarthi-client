@@ -8,7 +8,7 @@ import { IoSearchCircleOutline } from 'react-icons/io5'
 import { GrMoney } from 'react-icons/gr';
 import { MdOutlineCancel } from 'react-icons/md'
 import { AiOutlineHome } from 'react-icons/ai'
-import { GrResources } from 'react-icons/gr';
+import { ImAirplane } from 'react-icons/im';
 import { ImInfo } from 'react-icons/im'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeActiveStateOfSidebar } from '../../src/app/Slice'
@@ -36,14 +36,15 @@ const links = [
     {
         name: 'grand',
         icon: <MdOutlineEmojiEvents className='text-2xl' />,
+    },
+    {
+        name: 'studyabroad',
+        icon: <ImAirplane className='text-lg' />
     }
     , {
         name: 'about',
-        icon: <ImInfo className='text-2xl' />,
-
+        icon: <ImInfo className='text-2xl' />
     }
-
-
 ]
 const Sidebar = () => {
     const router = useRouter()
@@ -78,14 +79,13 @@ const Sidebar = () => {
     }
 
     return (
-        <>
-
+        <div
+            className={`z-50 -mt-12 md:mt-0 transition-all ease-out duration-700 ${activeState ? 'left-0' : '-left-64'
+                }  fixed h-screen w-64 bg-slate-50 md:top-0 md:bottom-0 md:overflow-hidden hover:md:overflow-y-auto `}
+        >
             {activeState && token && (
 
-                <nav
-                    className={`z-50 -mt-12 md:mt-0   transition-all ease-out duration-500 md:duration-700  ${activeState ? 'left-0 md:block' : '-left-64'
-                        }  fixed h-screen   w-64 bg-slate-50 md:top-0 md:bottom-0 md:overflow-hidden hover:md:overflow-y-auto`}
-                >
+                <nav>
                     <div className="flex items-center justify-between shadow-md pb-3 ">
                         <Link href="/">
                             <div
@@ -106,7 +106,6 @@ const Sidebar = () => {
                             </p>
                         </div>
                     </div>
-
                     <div className=" mt-8 mr-2 flex flex-col items-start justify-center">
                         {links.map((item, i) => (
                             <div className="w-full" key={i}>
@@ -118,7 +117,13 @@ const Sidebar = () => {
                                             <a>
                                                 <div className={`${normalLink} cursor-pointer transition-all ease-out duration-300 hover:translate-x-1`}>
                                                     {item.icon}
-                                                    <span className={` font-semibold capitalize ${activeSite === item.name ? 'border-b-2   border-red-500' : ''} `}>{item.name}</span>
+                                                    {item?.name === 'studyabroad' ? (
+                                                        <span className={` font-semibold capitalize ${activeSite === item.name ? 'border-b-2   border-red-500' : ''} `}>Abroad Study</span>
+
+                                                    ) :
+                                                        (
+                                                            <span className={` font-semibold capitalize ${activeSite === item.name ? 'border-b-2   border-red-500' : ''} `}>{item.name}</span>
+                                                        )}
                                                 </div>
                                             </a>
                                         </Link>
@@ -128,8 +133,9 @@ const Sidebar = () => {
                         ))}
                     </div>
                 </nav>
+
             )}
-        </>
+        </div>
 
     )
 }

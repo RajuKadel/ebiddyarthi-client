@@ -3,17 +3,11 @@ import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { toast } from 'react-hot-toast'
 import {
-    handleForgotEmail,
     forgotEmailSubmit,
     forgotPasswordSubmit,
     verifyOTP,
     facilitateHomeLogin,
-    handleRoutingReady,
     handleErrorToaster,
-    openEmailToaster,
-    openPasswordToaster,
-    openOTPToaster,
-    changeLogInState
 } from '../src/app/Slice'
 
 const forgotpassword = () => {
@@ -21,20 +15,16 @@ const forgotpassword = () => {
     const dispatch = useDispatch()
     const {
         isRoutingReady,
-        token,
-        forgotEmail,
-        forgotPassword: {
-            isNewResetPassword,
-            isForgotPasswordOTP,
-            isForgotPasswordEmail,
-        },
+        forgotPassword: { isForgotPasswordEmail }
     } = useSelector((state) => state)
     const [isLoading, setIsLoading] = React.useState(false)
     const [otp, setOtp] = React.useState('')
     const [email, setEmail] = React.useState('')
     const [resetPassword, setResetPassword] = React.useState('')
     const [confirmResetPassword, setConfirmResetPassword] = React.useState('')
-
+    const [forgotEmail, setForgotEmail] = React.useState(null);
+    const [isForgotPasswordOTP, setIsForgotPasswordOTP] = React.useState(false);
+    const [isNewResetPassword, setIsNewResetPassword] = React.useState(false);
     useEffect(() => {
         if (isRoutingReady) {
             dispatch(handleErrorToaster(false))
@@ -42,7 +32,7 @@ const forgotpassword = () => {
         }
     }
         , [isRoutingReady])
-
+ 
     const handleChange = (e) => {
         if (e.target.name === 'otp') {
             setOtp(e.target.value)
@@ -70,16 +60,15 @@ const forgotpassword = () => {
             })
         } else {
             const data = { email, type: 'forgotEmail' }
-            dispatch(handleForgotEmail(email))
-            dispatch(handleErrorToaster())
-            setIsLoading(true)
+            setIsLoading(true);
             const id = toast.loading('Validating email', {
                 position: 'top-right',
             })
             const dataEmailSubmit = await dispatch(forgotEmailSubmit(data))
-            console.log(dataEmailSubmit)
             if (dataEmailSubmit?.payload?.data?.message === "success") {
+                setForgotEmail(email);
                 toast.success('OTP sent successfully', { id: id })
+                setIsForgotPasswordOTP(true);
             }
             else {
                 toast.error("Invalid Credentials", { id: id })
@@ -99,20 +88,19 @@ const forgotpassword = () => {
                 },
             })
         } else {
-            const data = { otp, email: email, type: 'newOTP' }
-            dispatch(handleForgotEmail(email))
-            dispatch(handleErrorToaster())
+            const data = { otp, email: forgotEmail, type: 'newOTP' }
             setIsLoading(true)
             const id = toast.loading('Validating OTP', {
                 position: 'top-right',
             })
             const awaitVerifyOTP = await dispatch(verifyOTP(data))
             if (awaitVerifyOTP?.payload?.data?.message === "success") {
+                setIsForgotPasswordOTP(false);
                 toast.success('OTP verified successfully', { id: id })
+                setIsNewResetPassword(true);
             }
             else {
                 toast.error("Invalid OTP", { id: id })
-
             }
             setIsLoading(false)
         }
@@ -137,8 +125,9 @@ const forgotpassword = () => {
                     color: '#ffffff'
                 },
             })
-        } else if (resetPassword !== confirmResetPassword) {
-            toast.error('Password and confirm password does not match', {
+        }
+        else if ((resetPassword?.length || confirmResetPassword?.length > 8) && (resetPassword?.length || confirmResetPassword?.length < 12)) {
+            toast.error('Password must contain 8-12 characters', {
                 position: 'top-right',
                 autoClose: 3000,
                 style: {
@@ -146,7 +135,16 @@ const forgotpassword = () => {
                     color: '#ffffff'
                 },
             })
-            // alert()
+        }
+        else if (resetPassword !== confirmResetPassword) {
+            toast.error('Passwords do not match', {
+                position: 'top-right',
+                autoClose: 3000,
+                style: {
+                    background: '#b50724',
+                    color: '#ffffff'
+                },
+            })
         }
         else {
             const data = { resetPassword, confirmResetPassword, email: forgotEmail }
@@ -158,7 +156,10 @@ const forgotpassword = () => {
 
             const awaitForgot = await dispatch(forgotPasswordSubmit(data))
             if (awaitForgot?.payload?.data?.message === "success") {
+                setIsForgotPasswordOTP(false);
+                setIsNewResetPassword(false);
                 toast.success('Password Changed Successfully', { id: id })
+                router.push('/auth');
             }
             else {
                 toast.error("Invalid credentials", { id: id })
@@ -178,6 +179,7 @@ const forgotpassword = () => {
 
                 <div className="w-full max-w-md min-w-xs">
                     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
                         {isForgotPasswordEmail && (
                             <>
                                 <div className="mb-4">
@@ -194,6 +196,7 @@ const forgotpassword = () => {
                                         name="email"
                                     />
                                 </div>
+
                                 <div className="flex items-center justify-between">
                                     <button
                                         onClick={handleSubmitEmail}
@@ -227,8 +230,14 @@ const forgotpassword = () => {
                                         onChange={handleChange}
                                         value={otp}
                                         name="otp"
+                                        password='password123'
+                                        otpEmail="otpEmail"
+                                        mouseHover="mouseOnHover"
+                                        isDraggable='true'
                                     />
                                 </div>
+                                <p className='text-sm text-slate-600 pb-1'>Note: Please check on spam section of your email,if code is not received.</p>
+
                                 <div className="flex items-center justify-between">
                                     <button
                                         onClick={handleSubmitOTP}

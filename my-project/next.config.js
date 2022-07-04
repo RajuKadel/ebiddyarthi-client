@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    domains: ['mdbcdn.b-cdn.net', 'w3.org', 'mdbootstrap.com']
+    domains: ['mdbcdn.b-cdn.net', 'w3.org', 'mdbootstrap.com', 'cdn.tailgrids.com']
   }
 }

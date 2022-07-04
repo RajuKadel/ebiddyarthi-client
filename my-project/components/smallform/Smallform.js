@@ -32,11 +32,7 @@ const Formsmall = ({ type, label, value, setData, placeHolder, inputName, data }
                 aria-describedby="emailHelp123"
                 placeholder={placeHolder}
             />
-            {/* <div className="h-3">
-                {errors[name] && (
-                    <span className="text-red-600 text-sm">{errors[name].message}.</span>
-                )}
-            </div> */}
+
         </div>
     )
 }

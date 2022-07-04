@@ -2,63 +2,50 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/router'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Button, Form } from '../'
-import { changeLogInState, signUp, handleErrorToaster, handleRegisterToaster } from '../../src/app/Slice'
+import { changeLogInState, signUp } from '../../src/app/Slice'
 const Register = ({ methods }) => {
   const dispatch = useDispatch()
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false);
-  // const { isOTPReceivedFromRegistration } = useSelector((state) => state)
-  // useEffect(() => {
-  //   if (isOTPReceivedFromRegistration) {
-  //     router.push('/otpverify');
-  //   }
-  //   if (routeToAuth && !isOTPReceivedFromRegistration) {
-  //     router.push('/');
-  //   }
-  // }, [isOTPReceivedFromRegistration])
 
-  // useEffect(() => {
-  //   console.log('top of Register.js');
-  //   if (registerToaster) {
-  //     toast.loading('Registering User', {
-  //       position: 'top-right',
-  //     })
-  //   }
-  //   if (!registerToaster && isOTPReceivedFromRegistration) {
-  //     console.log('insidde toaster of Register.js');
-  //     toast.dismiss()
-  //   }
-  // }, [registerToaster])
   const onSubmit = async (data) => {
     const { password, confirmPassword } = data;
     if (password !== confirmPassword) {
-      alert('Password and confirm password does not match');
+      toast.error('Passwords do not match', {
+        position: 'top-right',
+        autoClose: 3000,
+        style: {
+          background: '#b50724',
+          color: '#ffffff'
+        }
+      })
     }
     else {
       const id = toast.loading('Registering User', {
         position: 'top-right',
+
       })
       setIsLoading(true);
       const awaitRegister = await dispatch(signUp(data))
-      console.log('awaitRegister', awaitRegister);
       if (awaitRegister?.payload?.data?.message == 'success') {
+        setIsLoading(false)
+
         toast.success('Registered successfully', { id: id })
         router.push('/otpverify')
       }
       else if (awaitRegister?.payload?.data?.message == 'User already exists') {
+        setIsLoading(false)
+
         toast.error('User already exists', { id: id })
-        // router.push('/otpverify')
       }
       else {
+        setIsLoading(false)
+
         toast.error('Something went wrong!', { id: id })
       }
-      // if (isOTPReceivedFromRegistration) {
-      //   router.push('/otpverify')
-      // }
       setIsLoading(false)
-
     }
   }
   return (
@@ -77,7 +64,8 @@ const Register = ({ methods }) => {
                   placeHolder={'Full Name'}
                   type={'text'}
                   name={'fullName'}
-                /></div>
+                />
+              </div>
               <div className='md:col-span-7'>
                 <Form label={'Email'} placeHolder={'email'} type={'text'}
                   name={'email'} />
@@ -96,6 +84,7 @@ const Register = ({ methods }) => {
                 placeHolder={'confirm password'}
                 type="password"
                 name={'confirmPassword'}
+                fullName={'Hello,fullName'}
               />
             </div>
             <div className="form-group mb-1">
@@ -129,7 +118,7 @@ const Register = ({ methods }) => {
                 name={'faculty'}
               />
             </div>
-            <Button className={`${isLoading ? 'invisible' : ''}`} text={'Register'} type='submit' />
+            <Button isLoading={isLoading} text={'Register'} type='submit' />
             <div className='flex justify-end mt-4 lg:mt-1'>
               <p className='text-sm md:text-sm text-slate-500'>Already a user? <span onClick={() => dispatch(changeLogInState(true))} className='hover:underline hover:cursor-pointer text-blue-500 hover:text-blue-600 font-semibold underline px-1 p-1'>Sign in</span></p>
             </div>

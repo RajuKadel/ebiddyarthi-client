@@ -5,7 +5,7 @@ const Mahatmadetail = () => {
 
         <div className=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div className='rounded-t-lg relative h-[40vh] w-full'>
-                <Image src='/golden.png' layout='fill' objectFit='cover' alt="image" />
+                <Image src={'/golden.png'} layout={'fill'} objectFit={'cover'} alt={"image"} />
             </div>
             <div className="p-5">
                 <a href="#">
@@ -32,10 +32,6 @@ const Mahatmadetail = () => {
 
 
             </div>
-
-            {/* <p href="#" onClick={() => router.push(`/apply/${slug}`)} className="cursor-pointer inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Apply Now
-            </p> */}
             <div>
             </div>
         </div>

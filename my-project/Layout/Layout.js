@@ -2,20 +2,19 @@ import { Navbar, Sidebar } from "../components"
 import { useSelector } from 'react-redux'
 import { Toaster } from 'react-hot-toast';
 const Layout = ({ children }) => {
-    const { activeSidebar, isUser, isAdmin } = useSelector((state) => state)
-    console.log(activeSidebar);
+    const { token } = useSelector((state) => state)
     return (
         <>
             <Toaster />
-            {isUser && !isAdmin && (
+            {token && (
                 <Sidebar />
             )}
             <div >
-                {isUser && !isAdmin && (
+                {token && (
                     <Navbar />
                 )}
                 <div>
-                    <div className='mt-12 pr-5'>
+                    <div className='mt-12 pr-5  '>
                         {children}
                     </div>
                 </div>
