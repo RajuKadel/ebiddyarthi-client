@@ -17,9 +17,10 @@ const research = () => {
     <title>Research</title>
   </Head>
   <div className="w-full h-full flex justify-end items-center">
-    <p className="text-xl text-slate-600 mr-[31vw]">
-      Sorry,currently not available.
-    </p>
+  <p className={`text-xl text-slate-600 ${activeSidebar?"md:mr-[31vw]":"md:mr-[23vw]"}`}>
+        Sorry,currently not available.
+
+        </p>
   </div>
 </div>
   )

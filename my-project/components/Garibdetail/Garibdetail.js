@@ -3,8 +3,11 @@ import Image from 'next/image'
 const Garibdetail = () => {
     return (
         <div className=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div className='rounded-t-lg relative h-[40vh] w-full'>
+            <div className='hidden md:block rounded-t-lg relative h-[40vh] w-full'>
                 <Image src={'/merit.png'} layout={'fill'} objectFit={'cover'} alt={"image"} />
+            </div>
+            <div className='md:hidden rounded-t-lg relative h-[40vh] w-full'>
+                <Image src={'/merit.png'} layout={'fill'} objectFit={'fill'} alt={"image"} />
             </div>
             <div className="p-5">
                 <a href="#">

@@ -18,7 +18,7 @@ const grand = () => {
         <title>Grand</title>
       </Head>
       <div className="w-full h-full flex justify-end items-center">
-        <p className="text-xl text-slate-600 mr-[31vw]">
+      <p className={`text-xl text-slate-600 ${activeSidebar?"md:mr-[31vw]":"md:mr-[23vw]"}`}>
         Sorry,currently not available.
 
         </p>

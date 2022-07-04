@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState} from 'react'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import Ugcdetail from '../../components/ugcDetail/Ugcdetail'
@@ -15,7 +15,7 @@ const ScholarshipDetail = () => {
     }, [])
     return (
         <div
-            className={`transition-all ease-out duration-700 pt-5 px-2 mt-12 bg-slate-100 ${activeSidebar ? 'lg:ml-64' : ''
+            className={`transition-all ease-out duration-700 pt-2 px-2 mt-11 bg-slate-100 ${activeSidebar ? 'lg:ml-64' : ''
                 }`}
         >
             {slug === 'ugc' ? <Ugcdetail /> : null}

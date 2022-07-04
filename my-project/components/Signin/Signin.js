@@ -33,7 +33,7 @@ const Signin = () => {
     })
 
     return (
-        <div className="md:max-h-[96vh] h-96vh -mt-6  overflow-hidden">
+        <div className="md:max-h-[96vh] h-96vh -mt-6   overflow-hidden">
             <div className="px-6 -pt-3 h-full text-gray-800 md:-mt-2 mt-2">
                 <div
                     className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-1"
@@ -43,10 +43,11 @@ const Signin = () => {
                     >
                         <Slider />
                     </div>
-                    <div className=" xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-3 md:mb-1">
-                        <div className={`  ${isLogIn ? 'pt-5 bg-slate-50' : ''} pt-1 flex items-center justify-center`}>
-                            <Image src={"/logo.jpg"} className='mt-5' height={`${isLogIn ? '50' : '40'}`} width={`${isLogIn ? '50' : '40'}`} />
-                            <p className={`px-2 font-bold text-xl ${isLogIn ? 'text-slate-600' : 'text-cyan-500'} mr-6 mt-2`}>Ebiddyarthii</p>
+
+                    <div className=" xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-2 md:mb-1 -pt-6  sm:mt-0 sm:pt-0">
+                        <div className={` z-50 ${isLogIn ? 'pt-5 bg-slate-50' : ''} pt-8 sm:pt-1 flex items-center justify-center`}>
+                            <Image src={"/logo.jpg"} className='mt-5 pt-4 ' height={`${isLogIn ? '50' : '40'}`} width={`${isLogIn ? '50' : '40'}`} />
+                            <p className={`px-1 font-bold text-xl ${isLogIn ? 'text-slate-600 text-3xl' : 'text-cyan-500'} mr-6 mt-2`}>Ebiddyarthii</p>
 
                         </div>
                         {isLogIn && <Loginform />}

@@ -46,14 +46,22 @@ const Home = () => {
             </Head>
             <div className="ml-2 pt-8 md:pt-0 md:max-w-[30vw] ">
               <div>
-                <p className="text-green-500 text-5xl mb-2 ">Ebiddyarthi</p>
+                <p className="text-green-500 text-6xl mb-2 mt-4 sm:mt-0 animate-bounce  "><span className='text-red-400 transition-all duration-800 animate-pulse'>Eb</span>idd<span className='text-yellow-400 transition-all duration-400 animate-ping'>Y</span>art<span className='text-blue-500 transition-all duration-800 ease-out animate-pulse'>hi</span></p>
               </div>
-              <p className="text-green-500 text-md md:text-xl">
-                A place to explore and grab the best opportunities provided by
-                the platform.We really mean it for your achievements.
+              <p className="text-green-500 mt-5 text-md md:text-xl max-w-[80vw] sm:max-w-[0vw]">
+                "A place to explore and grab the best opportunities provided by
+                the platform.We really mean it for your achievements."
               </p>
             </div>
-            <div>
+            <div className='md:hidden mt-20 sm:mt-0'>
+              <Image
+                src={'/vector.jpg'}
+                height={'700'}
+                width={'700'}
+                objectFit={'contain'}
+              />
+            </div>
+            <div className='hidden md:block mt-20 sm:mt-0'>
               <Image
                 src={'/vector.jpg'}
                 height={'500'}
@@ -63,7 +71,10 @@ const Home = () => {
             </div>
           </div>
           <div>
-            <div className="h-64 -ml-4 -mt-20 w-64 rounded-full bg-cyan-300"></div>
+           {/* <div className='h-20 w-full md:hidden bg-gradient-to-br from-purple-200 to-slate-200'> */}
+            
+           {/* </div> */}
+            <div className="hidden md:block h-64 -ml-4 -mt-20 w-64 rounded-full bg-cyan-300"></div>
           </div>
         </div>
       )}

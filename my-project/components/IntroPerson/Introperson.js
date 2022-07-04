@@ -29,13 +29,13 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                 <div
                                     className="
               snap
-              w-[70vw]
+              w-[100vw]
               max-w-[300px]
-              xs:max-w-[368px]
-              sm:max-w-[508px]
               lg:max-w-[80vw]
               2xl:max-w-[850px]
-              mx-auto
+              px-3
+              md:px-0
+              md:mx-auto
               h-auto
               flex flex-no-wrap
               
@@ -46,26 +46,27 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                 >
                                     <div
                                         className="
-                                        w-[70vw]
+                                        w-[100vw]
+                                        md:w-[70vw]
                  min-w-[300px]
-                 xs:min-w-[368px]
+   
                  sm:min-w-[508px]
                  md:min-w-[680px]
                  lg:min-w-[780px]
                  2xl:min-w-[850px]
                  mx-auto
                 mr-5
-                 sm:p-6
+                 md:p-6
                  "
                                     >
-                                        <div className=" w-[85vw] lg:flex space-x-5 
+                                        <div className=" w-[85vw] lg:flex space-x-5 md:space-x-4 mt-1
                                         items-center">
                                             <div
                                                 className="
                     
                        relative
                        h-[300px]
-                       w-[320px]
+                       w-[350px]
                        md:ml-12
                        md:h-[350px]
                        md:w-[35vw]
@@ -78,20 +79,21 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                                     alt={"image"}
                                                     layout={'fill'}
                                                     objectFit={'cover'}
-                                                    className="rounded-md mr-5"
+                                                    className=" hidden md:blockrounded-md mr-5"
                                                 />
+                                              
                                             </div>
                                             <div className="w-full mb-6">
                                                 <div>
                                                     <p
                                                         className={`
-                                                        pr-20 mr-8
+                                                        md:pr-20 mr-8
                              font-medium
                              italic
-                             text-black text-base
+                             text-pink-100 text-base
                              sm:text-lg
                              mb-3
-                             mt-1
+                             mt-2
                              lg:mr-24
 
                              `}
@@ -100,10 +102,10 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                                     </p>
                                                     <h4 className="
                                                     
-                                                    font-semibold text-purple-400 text-lg md:text-md lg:mr-5 lg:ml-[24vw]">
+                                                  animate-pulse  font-semibold text-purple-400 text-lg md:text-md lg:mr-5 lg:ml-[24vw]">
                                                         ~{name}
                                                     </h4>
-                                                    <p className="text-purple-300 italic pl-4  text-md md:text-md lg:mr-5 lg:ml-[24vw]">
+                                                    <p className="animate-pulse text-purple-300 italic pl-4  text-md md:text-md lg:mr-5 lg:ml-[24vw]">
                                                         {position}
                                                     </p>
                                                 </div>

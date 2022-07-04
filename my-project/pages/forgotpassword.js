@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { toast } from 'react-hot-toast'
+import Image from "next/image"
 import {
     forgotEmailSubmit,
     forgotPasswordSubmit,
@@ -174,12 +175,15 @@ const forgotpassword = () => {
     }
     return (
         <>
-            <div className="-mt-12 -pl-2 flex justify-center items-center h-screen bg-gradient-to-r from-indigo-500">
+            <div className="-mt-12 -pl-2 flex justify-center items-center h-screen bg-gradient-to-r from-slate-50 to-slate-0">
 
+                <div className="w-[95vw] max-w-md min-w-xs">
 
-                <div className="w-full max-w-md min-w-xs">
                     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-
+                        <div className='flex items-center mb-5 pb-5'>
+                            <Image src={"/logo.jpg"} width={'35'} height={'35'} />
+                            <p className='text-2xl text-cyan-400 font-bold px-2'>Ebiddyarthi</p>
+                        </div>
                         {isForgotPasswordEmail && (
                             <>
                                 <div className="mb-4">
@@ -200,10 +204,10 @@ const forgotpassword = () => {
                                 <div className="flex items-center justify-between">
                                     <button
                                         onClick={handleSubmitEmail}
-                                        className={`${isLoading == true ? 'invisible' : ''} bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                                        className={` bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                                         type="button"
+                                        disabled={isLoading}
 
-                                    // disabled={OTPToaster || emailToaster}
                                     >
                                         Proceed
                                     </button>
@@ -241,8 +245,9 @@ const forgotpassword = () => {
                                 <div className="flex items-center justify-between">
                                     <button
                                         onClick={handleSubmitOTP}
-                                        className={`${isLoading == true ? '' : ''} bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                                        className={` bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                                         type="button"
+                                        disabled={isLoading}
                                     >
                                         Proceed
                                     </button>
@@ -288,8 +293,10 @@ const forgotpassword = () => {
                                 <div className="flex items-center justify-between">
                                     <button
                                         onClick={handleSubmitPassword}
-                                        className={`${isLoading == true ? 'invisible' : ''} bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                                        className={` bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                                         type="button"
+                                        disabled={isLoading}
+
                                     >
                                         Proceed
                                     </button>

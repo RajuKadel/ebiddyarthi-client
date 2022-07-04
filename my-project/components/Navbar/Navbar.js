@@ -81,7 +81,7 @@ const Navbar = () => {
               <button>
                 <AiOutlineMenu
                   onClick={handleSidebar}
-                  className="ml-6  mt-1 cursor-pointer text-2xl text-cyan-500 md:text-2xl"
+                  className="ml-2 md:ml-6  mt-1 cursor-pointer text-2xl text-cyan-500 md:text-2xl"
                 />
               </button>
             </Tooltip>
@@ -100,9 +100,9 @@ const Navbar = () => {
                 <MdKeyboardArrowDown
                   className=" ml-3 cursor-pointer text-xl text-cyan-500"
                 />
-                <p className='shadow-sm text-cyan-500 p-1 rounded-md'>Hey, {loginData?.fullName?.split(' ')[0]}</p>
+                <p className='shadow-sm animate-pulse text-cyan-500 p-1 px-2 rounded-md'>Hey, {loginData?.fullName?.split(' ')[0]}</p>
               </div>
-              <div className='flex items-center'>
+              <div className='flex items-center space-x-1 backdrop:items-center'>
                 <BiLogOut className='h-8 w-8 cursor-pointer hover:text-red-400' onClick={handleLogOut} />
 
                 <span className='text-md text-black'>Sign out</span>
