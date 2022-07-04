@@ -126,7 +126,7 @@ const forgotpassword = () => {
                 },
             })
         }
-        else if ((resetPassword?.length || confirmResetPassword?.length <8 ) && (resetPassword?.length || confirmResetPassword?.length > 12)) {
+        else if (resetPassword?.length < 8 || confirmResetPassword?.length < 8 || resetPassword?.length > 12 || confirmResetPassword?.length > 12) {
             toast.error('Password must contain 8-12 characters', {
                 position: 'top-right',
                 autoClose: 3000,
