@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 const Introperson = ({ description, colour, image, name, position }) => {
     return (
-        <div className="w-full md:max-w-[80vw] mx-auto">
+        <div className="w-full xl:max-w-[80vw] xl:mx-auto">
             <section className=" bg-slate-700 pt-5">
                 <div className="container w-full">
                     <div
@@ -33,8 +33,7 @@ const Introperson = ({ description, colour, image, name, position }) => {
               max-w-[300px]
               xs:max-w-[368px]
               sm:max-w-[508px]
-              md:max-w-[630px]
-              lg:max-w-[70vw]
+              lg:max-w-[80vw]
               2xl:max-w-[850px]
               mx-auto
               h-auto
@@ -82,12 +81,9 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                                     objectFit={'cover'}
                                                     className="w-full rounded-lg"
                                                 />
-
-
                                             </div>
                                             <div className="w-full mb-6">
                                                 <div>
-
                                                     <p
                                                         className={`
                                                         pr-20 mr-8
@@ -103,21 +99,17 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                                     </p>
                                                     <h4 className="
                                                     
-                                                    font-semibold text-purple-400 text-lg md:text-md md:ml-[29vw]">
+                                                    font-semibold text-purple-400 text-lg md:text-md xl:mr-5 xl:ml-[29vw]">
                                                         ~{name}
                                                     </h4>
-                                                    <p className="text-purple-300 italic pl-4  text-md md:text-md md:ml-[29vw]">
+                                                    <p className="text-purple-300 italic pl-4  text-md md:text-md xl:mr-5 xl:ml-[29vw]">
                                                         {position}
                                                     </p>
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
-
                             </div>
                         </div>
                     </div>

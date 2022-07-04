@@ -89,8 +89,11 @@ const about = () => {
         </div>
       </div>
       <div className="max-w-80vw overflow-hidden" >
-        {data.map((item) => (
+        {data.map((item,index) => (
+          <div key={index}>
           <Introperson colour={item.colour} description={item.description} image={item.image} position={item.position} name={item.name} />
+            
+          </div>
         ))}
       </div>
 

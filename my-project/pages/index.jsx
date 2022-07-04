@@ -16,13 +16,11 @@ const Home = () => {
       router.push('/auth')
     }
     async function fetchData() {
-      console.log(token)
       const data = { token }
       const res = await axios.post(
         'https://ebiddyarthi-server.herokuapp.com/checktoken',
         data
       )
-      console.log(res)
       if (res?.data?.message === 'success') {
         dispatch(handleToken(res?.data?.token))
       } else {
@@ -63,9 +61,9 @@ const Home = () => {
                 objectFit={'contain'}
               />
             </div>
-            <div>
-            <div className="h-64 -ml-4 -mt-20 w-64 rounded-full bg-cyan-300"></div>
           </div>
+          <div>
+            <div className="h-64 -ml-4 -mt-20 w-64 rounded-full bg-cyan-300"></div>
           </div>
         </div>
       )}

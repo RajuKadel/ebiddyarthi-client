@@ -53,10 +53,10 @@ const scholarship = () => {
                     <div className={`ml-10 md:ml-0  pt-8 transition-all ease-out duration-700 grid gap-3 md:gap-2  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${!activeSidebar ? 'lg:ml-32 ' : 'ml-3'
                         }`}>
                         {scholarships.map(({ heading, description, image, isAvailable, route }, index) => (
-                            <>
+                            <div key={index}>
                                 <Cardmerit route={route} key={index} heading={heading} description={description} image={image} isAvailable={isAvailable} />
 
-                            </>
+                            </div>
                         ))}
                     </div>
                 </div>

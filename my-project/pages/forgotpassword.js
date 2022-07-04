@@ -32,7 +32,7 @@ const forgotpassword = () => {
         }
     }
         , [isRoutingReady])
- 
+
     const handleChange = (e) => {
         if (e.target.name === 'otp') {
             setOtp(e.target.value)
@@ -126,7 +126,7 @@ const forgotpassword = () => {
                 },
             })
         }
-        else if ((resetPassword?.length || confirmResetPassword?.length > 8) && (resetPassword?.length || confirmResetPassword?.length < 12)) {
+        else if ((resetPassword?.length || confirmResetPassword?.length <8 ) && (resetPassword?.length || confirmResetPassword?.length > 12)) {
             toast.error('Password must contain 8-12 characters', {
                 position: 'top-right',
                 autoClose: 3000,
