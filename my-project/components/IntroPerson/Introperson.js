@@ -56,7 +56,7 @@ const Introperson = ({ description, colour, image, name, position }) => {
                  2xl:min-w-[850px]
                  mx-auto
                 mr-5
-                 md:p-6
+                 md:p-2
                  "
                                     >
                                         <div className=" w-[85vw] lg:flex space-x-5 md:space-x-4 mt-1
@@ -67,31 +67,34 @@ const Introperson = ({ description, colour, image, name, position }) => {
                        relative
                        h-[300px]
                        w-[350px]
-                       md:ml-12
+                       md:-ml-3
                        md:h-[350px]
                        md:w-[35vw]
                         lg:min-w[30vw]
                        rounded-lg
+                       ml-10
+                       sm:ml-0
+                       sm:mr-5
                        "
-                                 >
+                                            >
                                                 <Image
                                                     src={image}
                                                     alt={"image"}
                                                     layout={'fill'}
                                                     objectFit={'cover'}
-                                                    className=" hidden md:blockrounded-md mr-5"
+                                                    className=" hidden md:block rounded-md mr-5"
                                                 />
-                                              
+
                                             </div>
                                             <div className="w-full mb-6">
                                                 <div>
                                                     <p
                                                         className={`
-                                                        md:pr-20 mr-8
+                                                        md:pr-40 mr-8
                              font-medium
                              italic
                              text-pink-100 text-base
-                             sm:text-lg
+                             sm:text-md
                              mb-3
                              mt-2
                              lg:mr-24
@@ -102,10 +105,10 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                                     </p>
                                                     <h4 className="
                                                     
-                                                  animate-pulse  font-semibold text-purple-400 text-lg md:text-md lg:mr-5 lg:ml-[24vw]">
+                                                  animate-pulse  font-semibold text-purple-400 text-lg md:text-md lg:mr-5 lg:ml-[15vw]">
                                                         ~{name}
                                                     </h4>
-                                                    <p className="animate-pulse text-purple-300 italic pl-4  text-md md:text-md lg:mr-5 lg:ml-[24vw]">
+                                                    <p className="animate-pulse text-purple-300 italic pl-4  text-md md:text-md lg:mr-5 lg:ml-[15vw]">
                                                         {position}
                                                     </p>
                                                 </div>

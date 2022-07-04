@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import { useJwt } from 'react-jwt'
-import jwt from 'jsonwebtoken'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -40,20 +38,32 @@ const Home = () => {
             activeSidebar ? 'lg:ml-64' : ''
           }`}
         >
-          <div className="md:flex justify-end space-x-20 gap-5 items-center ">
+          <div className="md:flex justify-end space-x-20 md:space-x-2 gap-5 sm:gap-2 items-center ">
             <Head>
               <title>Home</title>
             </Head>
             <div className="ml-2 pt-8 md:pt-0 md:max-w-[30vw] ">
               <div>
-                <p className="text-green-500 text-6xl mb-2 mt-4 sm:mt-0 animate-bounce  "><span className='text-red-400 transition-all duration-800 animate-pulse'>Eb</span>idd<span className='text-yellow-400 transition-all duration-400 animate-ping'>Y</span>art<span className='text-blue-500 transition-all duration-800 ease-out animate-pulse'>hi</span></p>
+                <p className="text-green-500 text-6xl mb-2 mt-4 sm:mt-0 animate-bounce  ">
+                  <span className="text-red-400 transition-all duration-800 animate-pulse">
+                    Eb
+                  </span>
+                  idd
+                  <span className="text-yellow-400 transition-all duration-400 animate-ping">
+                    Y
+                  </span>
+                  art
+                  <span className="text-blue-500 transition-all duration-800 ease-out animate-pulse">
+                    hi
+                  </span>
+                </p>
               </div>
-              <p className="text-green-500 mt-5 text-md md:text-xl max-w-[80vw] sm:max-w-[0vw]">
+              <p className="text-green-500 mt-5 text-md md:text-xl max-w-[80vw] sm:max-w-[70vw]">
                 "A place to explore and grab the best opportunities provided by
                 the platform.We really mean it for your achievements."
               </p>
             </div>
-            <div className='md:hidden mt-20 sm:mt-0'>
+            <div className="md:hidden mt-20 md:mt-0">
               <Image
                 src={'/vector.jpg'}
                 height={'700'}
@@ -61,7 +71,7 @@ const Home = () => {
                 objectFit={'contain'}
               />
             </div>
-            <div className='hidden md:block mt-20 sm:mt-0'>
+            <div className="hidden md:block mt-20 sm:mt-0">
               <Image
                 src={'/vector.jpg'}
                 height={'500'}
@@ -71,9 +81,9 @@ const Home = () => {
             </div>
           </div>
           <div>
-           {/* <div className='h-20 w-full md:hidden bg-gradient-to-br from-purple-200 to-slate-200'> */}
-            
-           {/* </div> */}
+            {/* <div className='h-20 w-full md:hidden bg-gradient-to-br from-purple-200 to-slate-200'> */}
+
+            {/* </div> */}
             <div className="hidden md:block h-64 -ml-4 -mt-20 w-64 rounded-full bg-cyan-300"></div>
           </div>
         </div>

@@ -44,13 +44,13 @@ const scholarship = () => {
         <>
             {token && (
                 <div
-                    className={` lg:h-[92vh]  transition-all lg:overflow-hidden ease-out duration-700 pt-3 md:pt-7  md:mt-5  bg-slate-100 ${activeSidebar ? 'lg:ml-64 ' : ''
+                    className={` lg:h-[92vh]  transition-all xl:overflow-hidden ease-out duration-700 pt-3 md:pt-7  md:mt-5  ${activeSidebar ? 'lg:ml-64 ' : ''
                         }`}
                 >
                      <Head>
         <title>Scholarship</title>
       </Head>
-                    <div className={` md:ml-0  pt-8 transition-all ease-out duration-700 grid gap-4 md:gap-2  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${!activeSidebar ? 'lg:ml-32 ' : ''
+                    <div className={`pl-12 md:pl-0 md:ml-0  pt-8 transition-all ease-out duration-700 grid gap-4 md:gap-4  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ${!activeSidebar ? 'lg:ml-32 ' : ''
                         }`}>
                         {scholarships.map(({ heading, description, image, isAvailable, route }, index) => (
                             <div key={index}>
