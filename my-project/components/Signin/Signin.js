@@ -27,7 +27,6 @@ const Signin = () => {
     const dispatch = useDispatch()
     const router = useRouter();
     const { isLogIn, isOTPReceivedFromRegistration } = useSelector(state => state)
-    console.log('isLogIn', isLogIn);
     const methods = useForm({
         resolver: yupResolver(schema),
     })

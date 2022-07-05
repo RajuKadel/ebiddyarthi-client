@@ -15,7 +15,7 @@ const Introperson = ({ description, colour, image, name, position }) => {
      }
      "
                     >
-                        <div className="w-full flex justify-start relative">
+                        <div className="w-full flex items-center justify-start relative">
                             <div
                                 className="
            w-full
@@ -33,7 +33,7 @@ const Introperson = ({ description, colour, image, name, position }) => {
               max-w-[300px]
               lg:max-w-[80vw]
               2xl:max-w-[850px]
-              px-3
+              pr-3
               md:px-0
               md:mx-auto
               h-auto
@@ -49,12 +49,12 @@ const Introperson = ({ description, colour, image, name, position }) => {
                                         w-[100vw]
                                         md:w-[70vw]
                  min-w-[300px]
-   
+                
                  sm:min-w-[508px]
                  md:min-w-[680px]
                  lg:min-w-[780px]
                  2xl:min-w-[850px]
-                 mx-auto
+                 md:mx-auto
                 mr-5
                  md:p-2
                  "
@@ -72,7 +72,8 @@ const Introperson = ({ description, colour, image, name, position }) => {
                        md:w-[35vw]
                         lg:min-w[30vw]
                        rounded-lg
-                       ml-10
+                       ml-4
+                       sm-:ml-8
                        sm:ml-0
                        sm:mr-5
                        "

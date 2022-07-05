@@ -55,7 +55,7 @@ const about = () => {
     }
   }, [])
   return (
-    <div className={`transition-all px-2  ease-out duration-700 bg-slate-100 ${activeSidebar ? 'lg:ml-64' : ''
+    <div className={`transition-all  ease-out duration-700 bg-slate-100 ${activeSidebar ? 'lg:ml-64' : ''
       }`}>
       <Head>
         <title>About</title>
