@@ -15,11 +15,9 @@ const Home = () => {
     }
     async function fetchData() {
       const data = { token }
-      const url = 'http://localhost:8080'
-
       const res = await axios.post(
         url,
-        // 'https://ebiddyarthi-server.herokuapp.com/checktoken',
+        'https://ebiddyarthi-server.herokuapp.com/checktoken',
         data
       )
       if (res?.data?.message === 'success') {
