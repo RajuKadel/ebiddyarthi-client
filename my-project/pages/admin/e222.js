@@ -24,15 +24,18 @@ const Admin = () => {
     }, [])
     useEffect(() => {
         async function fetchData() {
-            const url = 'https://ebiddyarthi-server.herokuapp.com'
+            const url = 'https://ebiddyarthi-server.herokuapp.com';
+            // const url = 'http://localhost:8080';
             const response = await axios.get(`${url}/getallusers`);
             if (response?.data?.responseArray?.length > 0) {
                 const data = response?.data?.responseArray
                 setIsAllData(data);
+                console.log(data)
                 const filter = data?.filter(item => item.type === 'scholarship');
                 setScholarshipData(filter);
             }
         }
+        console.log(isAllData);
         if (isAdmin) {
             fetchData();
         }
@@ -113,18 +116,18 @@ const Admin = () => {
                                     <div>
                                         {isAllData?.map((item, index) => (
                                             <Listcard key={index}
-                                                name={item.fullName}
-                                                email={item.email}
-                                                phone={item.phone}
-                                                faculty={item.faculty}
+                                                name={item?.fullName}
+                                                email={item?.email}
+                                                phone={item?.phone}
+                                                faculty={item?.faculty}
                                                 bankName={item?.bankName}
                                                 bankAccountName={item?.bankAccountName}
                                                 bankAccountNumber={item?.bankAccountNumber}
-                                                dateOfBirthInBS={item.dateOfBirthInBS}
-                                                dateOfBirthInAD={item.dateOfBirthInAD}
-                                                isVerified={item.isVerified}
+                                                dateOfBirthInBS={item?.dateOfBirthInBS}
+                                                dateOfBirthInAD={item?.dateOfBirthInAD}
+                                                isVerified={item?.isVerified}
                                                 instituteRollNo={item?.instituteRollNo}
-                                                institute={item.institute}
+                                                institute={item?.institute}
                                                 showAccount={false}
                                                 date={item?.date}
                                                 dateApply={item?.dateApply}
@@ -139,12 +142,10 @@ const Admin = () => {
                                 <div className='mt-2 h-[70vh] w-[100vw] ml-2 bg-slate-100 overflow-hidden hover:overflow-y-scroll md:w-[31vw] rounded-md'>
                                     <div>
                                         {scholarshipData?.map((item, index) => (
-
-
                                             <Listcard key={index}
-                                                name={item.fullName}
-                                                email={item.email}
-                                                phone={item.phone}
+                                                name={item?.fullName}
+                                                email={item?.email}
+                                                phone={item?.phone}
                                                 faculty={item?.faculty}
                                                 bankName={item?.bankName}
                                                 bankAccountName={item?.bankAccountName}

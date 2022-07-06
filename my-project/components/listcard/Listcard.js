@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 const Listcard = ({ name, email, date, dateApply, institute, phone, faculty, bankName, bankAccountName, bankAccountNumber, dateOfBirthInBS, dateOfBirthInAD, showAccount, isVerified, instituteRollNo }) => {
+  console.log(isVerified);
     return (
         <div>
             <div className="p-4 min-w-lg max-w-lg my-0 bg-white  rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -30,7 +31,7 @@ const Listcard = ({ name, email, date, dateApply, institute, phone, faculty, ban
                         <span className="text-base font-normal leading-tight text-gray-500">Date of Birth (AD): {dateOfBirthInAD}</span>
                     </li>
                     <li className="flex space-x-3 ">
-                        <span className="text-base font-normal leading-tight text-gray-500">isVerifiedEmail: {isVerified}</span>
+                        <span className="text-base font-normal leading-tight text-gray-500">isEmailVerified: {isVerified===true?'Yes':'No'}</span>
                     </li>
                     {!showAccount && (
                         <li className="flex space-x-3 ">

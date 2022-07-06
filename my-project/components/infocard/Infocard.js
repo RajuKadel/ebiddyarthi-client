@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import NumberCounter from 'number-counter';
 const Infocard = ({ color, title, data }) => {
-    const [count, setCount] = useState(0);
     if (title === 'Interns') {
         data = [];
     }
+    let count = 0;
     useEffect(() => {
-        setCount((prev) => prev + 1);
+        count = count + 1;
     }, [data])
     return (
         <div>

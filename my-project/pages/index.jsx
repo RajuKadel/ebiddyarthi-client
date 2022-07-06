@@ -16,7 +16,6 @@ const Home = () => {
     async function fetchData() {
       const data = { token }
       const res = await axios.post(
-        url,
         'https://ebiddyarthi-server.herokuapp.com/checktoken',
         data
       )
