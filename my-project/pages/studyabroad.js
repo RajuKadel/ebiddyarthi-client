@@ -21,12 +21,7 @@ const abroadStudy = () => {
                 <Head>
                     <title>Study Abroad</title>
                 </Head>
-                {/* <div className="w-full h-full flex justify-end items-center">
-                <p className={`text-xl text-slate-600 ${activeSidebar?"md:mr-[31vw]":"md:mr-[23vw]"}`}>
-        Sorry,currently not available.
 
-        </p>
-                </div> */}
                 <StudyAbroad />
             </div>
         </>

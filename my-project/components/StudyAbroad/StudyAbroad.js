@@ -18,7 +18,7 @@ const StudyAbroad = () => {
                     Ways to apply for a Scholarship:
                 </h2>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 normal-case">
-                    There are various ways to apply for a scholarship in the USA . Besides, students can reach the process through various search engines. Indeed, most of the students rely on the consultancy to conduct a scholarship search on their behalf. Not only these many service providers charge students to access their scholarship database.
+                    There are various ways to apply for a scholarship in the USA . Besides, Students can reach the process through various search engines. Indeed, most of the students rely on the consultancy to conduct a scholarship search on their behalf. Not only these many service providers charge students to access their scholarship database.
                     Differing from this some students apply for themselves through the various websites also. Among those websites, the common app, the school's financial aid website, and https://www.internationalscholarships.com/ are reliable ones and are free of charge especially. Another way to get a scholarship is to write to your professor and ask your school.
                     These are some methods through which students can apply for the scholarship with less effort particularly.
                 </p>
