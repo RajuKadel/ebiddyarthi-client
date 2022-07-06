@@ -6,6 +6,8 @@ import { toast } from 'react-hot-toast'
 import {
     handleCancelOTPVerify,
 } from '../src/app/Slice'
+import Head from "next/head"
+
 const otpverify = () => {
     const [disabled, setDisabled] = useState(false)
     const router = useRouter()
@@ -63,9 +65,9 @@ const otpverify = () => {
             {
                 isOTPReceivedFromRegistration && (
                     <div className='h-screen -mt-12 flex justify-center items-center bg-gradient-to-r from-purple-600'>
-                               <Head>
-            <title>OTP Verify</title>
-          </Head>
+                        <Head>
+                            <title>OTP Verify</title>
+                        </Head>
 
 
                         <div className="w-full max-w-md min-w-xs">
