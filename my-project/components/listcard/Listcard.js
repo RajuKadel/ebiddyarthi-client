@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-const Listcard = ({ name, email,date, institute, phone, faculty, bankName, bankAccountName, bankAccountNumber, dateOfBirthInBS, dateOfBirthInAD, showAccount }) => {
+const Listcard = ({ name, email, date, dateApply, institute, phone, faculty, bankName, bankAccountName, bankAccountNumber, dateOfBirthInBS, dateOfBirthInAD, showAccount, isVerified, instituteRollNo }) => {
     return (
         <div>
             <div className="p-4 min-w-lg max-w-lg my-0 bg-white  rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -29,6 +29,9 @@ const Listcard = ({ name, email,date, institute, phone, faculty, bankName, bankA
                     <li className="flex space-x-3 ">
                         <span className="text-base font-normal leading-tight text-gray-500">Date of Birth (AD): {dateOfBirthInAD}</span>
                     </li>
+                    <li className="flex space-x-3 ">
+                        <span className="text-base font-normal leading-tight text-gray-500">isVerifiedEmail: {isVerified}</span>
+                    </li>
                     {!showAccount && (
                         <li className="flex space-x-3 ">
                             <span className="text-base font-normal leading-tight text-gray-500">Registered Date:{date}</span>
@@ -37,8 +40,12 @@ const Listcard = ({ name, email,date, institute, phone, faculty, bankName, bankA
                     {showAccount && (
                         <>
                             <li className="flex space-x-3 ">
+                                <span className="text-base font-normal leading-tight text-gray-500">InstituteRollNo: {instituteRollNo}</span>
+                            </li>
+                            <li className="flex space-x-3 ">
                                 <span className="text-base font-normal leading-tight text-gray-500">Bank Name: {bankName}</span>
                             </li>
+
                             <li className="flex space-x-3 ">
                                 <span className="text-base font-normal leading-tight text-gray-500">Bank Account Name: {bankAccountName}</span>
                             </li>
@@ -46,7 +53,7 @@ const Listcard = ({ name, email,date, institute, phone, faculty, bankName, bankA
                                 <span className="text-base font-normal leading-tight text-gray-500">Bank Account Number: {bankAccountNumber}</span>
                             </li>
                             <li className="flex space-x-3 ">
-                                <span className="text-base font-normal leading-tight text-gray-500">Scholarship Apply(Date):{date}</span>
+                                <span className="text-base font-normal leading-tight text-gray-500">Scholarship Apply(Date):{dateApply}</span>
                             </li>
                         </>
                     )}

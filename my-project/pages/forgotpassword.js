@@ -10,6 +10,7 @@ import {
     facilitateHomeLogin,
     handleErrorToaster,
 } from '../src/app/Slice'
+import Head from 'next/head'
 
 const forgotpassword = () => {
     const router = useRouter()
@@ -176,7 +177,9 @@ const forgotpassword = () => {
     return (
         <>
             <div className="-mt-12 -pl-2 flex justify-center items-center h-screen bg-gradient-to-r from-slate-50 to-slate-0">
-
+                <Head>
+                    <title>Forgot Password</title>
+                </Head>
                 <div className="w-[95vw] max-w-md min-w-xs">
 
                     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">

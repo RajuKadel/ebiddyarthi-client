@@ -5,6 +5,7 @@ import Imageform from '../../components/imageform/Imageform'
 import Formsmall from '../../components/smallform/Smallform'
 import { toast } from 'react-hot-toast'
 import Progress from '../../components/Progress/Progress'
+import Head from 'next/head'
 const ScholarshipApply = () => {
   const [progress, setProgress] = useState(false)
   const initial = {
@@ -130,6 +131,9 @@ const ScholarshipApply = () => {
       className={`  bg-slate-50  px-5 py-5 transition-all ease-out duration-700 mt-12  md:h-[92vh] ${activeSidebar ? 'md:ml-64 pl-5' : 'md:pl-36'
         }`}
     >
+             <Head>
+            <title>Apply</title>
+          </Head>
       {slug == 'ugc' && (
         <div>
           <form className="py-8 mt-2 px-6  md:px-6  bg-white shadow-xl backdrop-blur-xl mx-1 lg:w-[78vw] grid grid-cols-1 md:grid-cols-2  gap-4 place-items-center">

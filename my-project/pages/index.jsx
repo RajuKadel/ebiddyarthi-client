@@ -81,9 +81,6 @@ const Home = () => {
             </div>
           </div>
           <div>
-            {/* <div className='h-20 w-full md:hidden bg-gradient-to-br from-purple-200 to-slate-200'> */}
-
-            {/* </div> */}
             <div className="hidden md:block h-64 -ml-4 -mt-20 w-64 rounded-full bg-cyan-300"></div>
           </div>
         </div>

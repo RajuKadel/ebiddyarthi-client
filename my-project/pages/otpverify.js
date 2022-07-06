@@ -63,7 +63,9 @@ const otpverify = () => {
             {
                 isOTPReceivedFromRegistration && (
                     <div className='h-screen -mt-12 flex justify-center items-center bg-gradient-to-r from-purple-600'>
-
+                               <Head>
+            <title>OTP Verify</title>
+          </Head>
 
 
                         <div className="w-full max-w-md min-w-xs">

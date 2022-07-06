@@ -112,15 +112,23 @@ const Admin = () => {
                                 <div className='mt-2 w-[100vw] h-[70vh] ml-2 overflow-hidden hover:overflow-y-scroll bg-slate-100 md:w-[31vw] rounded-md'>
                                     <div>
                                         {isAllData?.map((item, index) => (
-                                            <Listcard key={index} name={item.fullName} email={item.email} phone={item.phone}
-                                                faculty={item.faculty} bankName={item.bankName} bankAccountName={item.bankAccountName}
-                                                bankAccountNumber={item.bankAccountNumber}
+                                            <Listcard key={index}
+                                                name={item.fullName}
+                                                email={item.email}
+                                                phone={item.phone}
+                                                faculty={item.faculty}
+                                                bankName={item?.bankName}
+                                                bankAccountName={item?.bankAccountName}
+                                                bankAccountNumber={item?.bankAccountNumber}
                                                 dateOfBirthInBS={item.dateOfBirthInBS}
                                                 dateOfBirthInAD={item.dateOfBirthInAD}
                                                 isVerified={item.isVerified}
+                                                instituteRollNo={item?.instituteRollNo}
                                                 institute={item.institute}
                                                 showAccount={false}
                                                 date={item?.date}
+                                                dateApply={item?.dateApply}
+
                                             />
                                         ))}
                                     </div>
@@ -133,15 +141,22 @@ const Admin = () => {
                                         {scholarshipData?.map((item, index) => (
 
 
-                                            <Listcard key={index} name={item.fullName} email={item.email} phone={item.phone}
-                                                faculty={item.faculty} bankName={item.bankName} bankAccountName={item.bankAccountName}
-                                                bankAccountNumber={item.bankAccountNumber}
-                                                dateOfBirthInBS={item.dateOfBirthInBS}
-                                                dateOfBirthInAD={item.dateOfBirthInAD}
-                                                isVerified={item.isVerified}
-                                                institute={item.institute}
+                                            <Listcard key={index}
+                                                name={item.fullName}
+                                                email={item.email}
+                                                phone={item.phone}
+                                                faculty={item?.faculty}
+                                                bankName={item?.bankName}
+                                                bankAccountName={item?.bankAccountName}
+                                                bankAccountNumber={item?.bankAccountNumber}
+                                                dateOfBirthInBS={item?.dateOfBirthInBS}
+                                                dateOfBirthInAD={item?.dateOfBirthInAD}
+                                                isVerified={item?.isVerified}
+                                                institute={item?.institute}
+                                                instituteRollNo={item?.instituteRollNo}
                                                 showAccount={true}
                                                 date={item?.date}
+                                                dateApply={item?.dateApply}
                                             />
 
 
