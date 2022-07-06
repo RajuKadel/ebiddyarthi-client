@@ -67,9 +67,9 @@ const Introperson = ({ description, colour, image, name, position }) => {
                        relative
                        h-[300px]
                        w-[350px]
-                       md:-ml-3
+                       md:-ml-4
                        md:h-[350px]
-                       md:w-[35vw]
+                       md:w-[45vw]
                         lg:min-w[30vw]
                        rounded-lg
                        ml-4
@@ -95,9 +95,12 @@ const Introperson = ({ description, colour, image, name, position }) => {
                              font-medium
                              italic
                              text-pink-100 text-base
+                             w-full
                              sm:text-md
                              mb-3
                              mt-2
+                             md:-ml-12
+                             lg:ml-0
                              lg:mr-24
 
                              `}

@@ -15,8 +15,11 @@ const Home = () => {
     }
     async function fetchData() {
       const data = { token }
+      const url = 'http://localhost:8080'
+
       const res = await axios.post(
-        'https://ebiddyarthi-server.herokuapp.com/checktoken',
+        url,
+        // 'https://ebiddyarthi-server.herokuapp.com/checktoken',
         data
       )
       if (res?.data?.message === 'success') {
@@ -42,7 +45,7 @@ const Home = () => {
             <Head>
               <title>Home</title>
             </Head>
-            <div className="ml-2 pt-8 md:pt-0 md:max-w-[30vw] ">
+            <div className="ml-2 pt-12 md:pt-0 md:max-w-[30vw] ">
               <div>
                 <p className="text-green-500 text-6xl mb-2 mt-4 sm:mt-0 animate-bounce  ">
                   <span className="text-red-400 transition-all duration-800 animate-pulse">

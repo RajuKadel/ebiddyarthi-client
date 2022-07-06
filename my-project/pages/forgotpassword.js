@@ -238,7 +238,6 @@ const forgotpassword = () => {
                                         value={otp}
                                         name="otp"
                                         password='password123'
-                                        otpEmail="otpEmail"
                                         mouseHover="mouseOnHover"
                                         isDraggable='true'
                                     />

@@ -60,7 +60,7 @@ const about = () => {
       <Head>
         <title>About</title>
       </Head>
-      <div className="mb-5 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-200 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="mb-5 bg-gradient-to-r from-indigo-100 via-indigo-200 to-indigo-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className="p-5">
           <div className="flex items-center space-x-2 pb-2">
             <div className="relative h-12 w-12">

@@ -81,7 +81,7 @@ const Navbar = () => {
               <button>
                 <AiOutlineMenu
                   onClick={handleSidebar}
-                  className="ml-2 md:ml-6  mt-1 cursor-pointer text-2xl text-cyan-500 md:text-2xl"
+                  className="ml-3 sm:ml-6 lg:ml-6  mt-1 cursor-pointer text-2xl text-cyan-500 md:text-2xl"
                 />
               </button>
             </Tooltip>

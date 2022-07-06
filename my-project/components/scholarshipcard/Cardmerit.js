@@ -4,7 +4,7 @@ const Cardmerit = ({ heading, description, image, isAvailable, route }) => {
     const router = useRouter()
     return (
         <>
-            <div onClick={() => router.push(`/scholarships/${route}`)} className="cursor-pointer hover:bg-slate-50 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 transition-all duration-200 ease-out hover:scale-105">
+            <div onClick={() => router.push(`/scholarships/${route}`)} className="  cursor-pointer hover:bg-slate-50 w-full  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 transition-all duration-200 ease-out hover:scale-105">
                 <div className=' hidden md:block rounded-t-lg relative h-[35vh] w-full'>
                     <Image src={image} layout={'fill'} objectFit={'cover'} alt={"image"} />
                 </div>

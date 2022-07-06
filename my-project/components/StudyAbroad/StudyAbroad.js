@@ -24,7 +24,7 @@ const StudyAbroad = () => {
                 </p>
             </div>
             <div className='md:flex space-x-4'>
-                <div className='relative w-[90vw] h-[15em] pt-2'>
+                <div className='md:hidden relative w-[90vw] h-[15em] pt-2'>
                     <Image src={'/usa.webp'} className='pt-5' layout={'fill'} objectFit={'cover'} />
                 </div>
                 <div >
@@ -49,7 +49,7 @@ const StudyAbroad = () => {
 
                     </p>
                 </div>
-                <div className='md: relative w-[190em] h-[20em] pt-5'>
+                <div className='hidden md:block relative w-[230em] h-[20em] pt-5'>
                     <Image src={'/usa.webp'} className='pt-5' layout={'fill'} objectFit={'cover'} />
                 </div>
 

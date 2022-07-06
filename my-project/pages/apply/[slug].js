@@ -192,13 +192,13 @@ const ScholarshipApply = () => {
               placeHolder={'PUR077BCT097'}
             />
             <div></div>
-            <div className="mt-8 pl-5 block pr-[1vw]">
+            <div className="mt-5 md:mt-8 pl-5 block pr-[1vw]">
               {progress ? (
                 <Progress />
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="mr-[12vw] md:mr-[29vw]    bg-blue-500 hover:bg-blue-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                  className="mr-[12vw] md:mr-[26vw]    bg-blue-500 hover:bg-blue-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
                 >
                   <span type="submit">Submit</span>
                 </button>

@@ -52,9 +52,18 @@ const Sidebar = () => {
         (state) => state
     )
     const activeSite = router?.pathname.split('/')[1]
+    console.log(activeSite);
+    console.log(router.pathname)
+    const isRemain = activeSite.substring(0, activeSite?.length - 1);
     if (!activeSite) {
         activeSite = 'home'
     }
+    var isRemainApply = '';
+    if (activeSite == "apply") {
+        isRemainApply = 'scholarship';
+    }
+    console.log(isRemainApply,'isremain');
+
     const dispatch = useDispatch()
     const activeLink =
         'm-2 mr-2 flex  w-full items-center gap-3 rounded-md p-1 text-white'
@@ -120,7 +129,7 @@ const Sidebar = () => {
 
                                                     ) :
                                                         (
-                                                            <span className={` font-semibold capitalize ${activeSite === item.name ? 'border-b-2   border-red-500' : ''} `}>{item.name}</span>
+                                                            <span className={` font-semibold capitalize ${isRemainApply === item.name ? 'border-b-2   border-red-500' : ''}  ${isRemain === item.name ? 'border-b-2   border-red-500' : ''} ${activeSite === item.name ? 'border-b-2   border-red-500' : ''} `}>{item.name}</span>
                                                         )}
                                                 </div>
                                             </a>
