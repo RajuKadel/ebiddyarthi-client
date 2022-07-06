@@ -4,12 +4,7 @@ const StudyAbroad = () => {
     return (
         <div className=" px-2 pl-4 py-2 bg-slate-50 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 w-full">
 
-            {/* <div className='hidden md:block rounded-t-lg relative h-[40vh] w-full'>
-                <Image src={'/golden.png'} layout={'fill'} objectFit={'cover'} alt={"image"} />
-            </div>
-            <div className='md:hidden rounded-t-lg relative h-[40vh] w-full'>
-                <Image src={'/golden.png'} layout={'fill'} objectFit={'fill'} alt={"image"} />
-            </div> */}
+
             <div className="">
                 <h2 className=' text-lg bg-green-300   text-800  font-medium w-fit px-3 rounded-md'>
                     How can we apply for a scholarship in the USA?
@@ -29,7 +24,11 @@ const StudyAbroad = () => {
                 </p>
             </div>
             <div className='md:flex space-x-4'>
+                <div className='relative w-[90vw] h-[15em] pt-2'>
+                    <Image src={'/usa.webp'} className='pt-5' layout={'fill'} objectFit={'cover'} />
+                </div>
                 <div >
+
                     <h2 className=' text-lg bg-cyan-300   text-800  font-medium w-fit px-3 rounded-md'>
                         Which colleges are best for the scholarship?
                     </h2>
@@ -50,7 +49,7 @@ const StudyAbroad = () => {
 
                     </p>
                 </div>
-                <div className='relative w-[190em] h-[20em] pt-5'>
+                <div className='md: relative w-[190em] h-[20em] pt-5'>
                     <Image src={'/usa.webp'} className='pt-5' layout={'fill'} objectFit={'cover'} />
                 </div>
 
@@ -119,7 +118,7 @@ const StudyAbroad = () => {
             </div>
             <div>
 
-            <h2 className=' text-lg bg-red-400   text-800  font-medium w-fit px-3 rounded-md'>
+                <h2 className=' text-lg bg-red-400   text-800  font-medium w-fit px-3 rounded-md'>
                     How much does it cost to study in the USA from India?
 
                 </h2>
@@ -130,7 +129,7 @@ const StudyAbroad = () => {
                 </p>
             </div>
             <div>
-            <h2 className=' text-lg bg-red-400   text-800  font-medium w-fit px-3 rounded-md'>
+                <h2 className=' text-lg bg-red-400   text-800  font-medium w-fit px-3 rounded-md'>
                     Charges of different levels of universities:
 
 
