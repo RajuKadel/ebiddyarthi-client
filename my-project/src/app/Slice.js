@@ -64,17 +64,14 @@ export const counterSlice = createSlice({
             else {
                 state.activeNav = ''
             }
-            console.log({ item });
             state.navbarDropdown[value] = !state.navbarDropdown[value];
         },
         hideOtherNavDropdown: (state, action) => {
             const value = action.payload;
-            console.log(value);
             state.navbarDropdown[value] = !state.navbarDropdown[value];
             state.activeNav = '';
         },
         handleScreenSize: (state, action) => {
-            console.log(action.payload);
             state.screenSize = action.payload;
         },
         changeLogInState: (state, action) => {
@@ -95,7 +92,6 @@ export const counterSlice = createSlice({
             state.registrationData = null;
             state.loginData = null;
             state.token = '';
-            console.log('admin panel');
         },
         handleSnackbarOpen: (state, action) => {
             state.isSnackbarOpen = action.payload;
@@ -146,7 +142,6 @@ export const counterSlice = createSlice({
                 }
             }),
             builder.addCase(logIn.fulfilled, (state, action) => {
-                console.log(action.payload?.data);
                 if (action.payload?.data?.message === "success") {
                     state.loginData = action.payload?.data;
                     const token = action.payload?.data?.token;

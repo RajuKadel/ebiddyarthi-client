@@ -87,7 +87,7 @@ const Sidebar = () => {
     }
     return (
         <div
-            className={`z-50 -mt-12 md:mt-0 transition-all ease-out duration-700 ${activeState ? 'left-0' : '-left-64'
+            className={`z-50 -mt-12 md:mt-0 shadow-xl transition-all ease-out duration-700 ${activeState ? 'left-0' : '-left-64'
                 }  fixed h-screen w-64 bg-slate-50 md:top-0 md:bottom-0 md:overflow-hidden hover:md:overflow-y-auto `}
         >
             {activeState && token && (

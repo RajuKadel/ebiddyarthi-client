@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 const Listcard = ({ name, email, date, dateApply, institute, phone, faculty, bankName, bankAccountName, bankAccountNumber, dateOfBirthInBS, dateOfBirthInAD, showAccount, isVerified, instituteRollNo }) => {
-  console.log(isVerified);
     return (
         <div>
             <div className="p-4 min-w-lg max-w-lg my-0 bg-white  rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">

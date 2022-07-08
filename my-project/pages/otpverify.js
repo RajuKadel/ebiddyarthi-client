@@ -40,7 +40,6 @@ const otpverify = () => {
                 position: 'top-right',
             })
             const awaitOTP = await dispatch(verifyOTP(data))
-            console.log('awaitOTP', awaitOTP)
             if (awaitOTP.payload?.data?.message === "success") {
                 setDisabled(true)
                 toast.success('OTP Verified Successfully', {

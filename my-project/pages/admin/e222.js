@@ -9,12 +9,14 @@ import { adminLogin } from '../../src/app/Slice';
 import Infocard from '../../components/infocard/Infocard';
 import Listcard from '../../components/listcard/Listcard';
 import axios from 'axios';
+import Head from 'next/head';
 const Admin = () => {
     const dispatch = useDispatch();
     const [isAllData, setIsAllData] = React.useState(null);
     const [scholarshipData, setScholarshipData] = React.useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
     const [refresh, setRefresh] = useState(false);
+    const [count, setCount] = useState(0);
     const [formData, setFormData] = React.useState({
         email: '',
         password: ''
@@ -30,18 +32,19 @@ const Admin = () => {
             if (response?.data?.responseArray?.length > 0) {
                 const data = response?.data?.responseArray
                 setIsAllData(data);
-                console.log(data)
                 const filter = data?.filter(item => item.type === 'scholarship');
                 setScholarshipData(filter);
             }
         }
-        console.log(isAllData);
         if (isAdmin) {
             fetchData();
+            setCount((prev) => prev + 1);
+
         }
     }, [isAdmin, refresh])
     const handleSignOut = () => {
         setIsAdmin(false);
+        setCount(0)
     }
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -96,6 +99,9 @@ const Admin = () => {
     }
     return (
         <div className='relative mt-24 md:mt-0 '>
+            <Head>
+                <title>Admin Panel</title>
+            </Head>
             {isAdmin && isAllData && scholarshipData ? (
                 <div >
                     <div onClick={handleSignOut} className='bg-black fixed top-0 right-2 cursor-pointer  px-4 p-2 rounded-md'>
@@ -111,7 +117,7 @@ const Admin = () => {
                     <div>
                         <div className='md:flex h-full space-y-2 mr-7  md:mx-10 pr-10  -mt-20 pt-11 items-center justify-between'>
                             <div>
-                                <Infocard color='bg-blue-300' data={isAllData} title={'Registered Users'} />
+                                <Infocard color='bg-blue-300' count={count} setCount={setCount} data={isAllData} title={'Registered Users'} />
                                 <div className='mt-2 w-[100vw] h-[70vh] ml-2 overflow-hidden hover:overflow-y-scroll bg-slate-100 md:w-[31vw] rounded-md'>
                                     <div>
                                         {isAllData?.map((item, index) => (
@@ -187,26 +193,26 @@ const Admin = () => {
                     </div>
                 </div>
             ) : (
-                <section className="h-[92vh]">
+                <section className="md:h-[85vh]">
                     <div className="px-6 h-full text-gray-800">
                         <div
-                            className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
+                            className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-2 md:g-6"
                         >
                             <div
-                                className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0"
+                                className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12"
                             >
                                 <img
                                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                                    className="w-full"
+                                    className="hidden lg:block -mt-32 w-full md:w-[80vw] "
                                     alt="Sample image"
                                 />
                             </div>
-                            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                            <div className="p-8 shadow-lg py-12  xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
                                 <form>
 
                                     <div className='flex space-x-3 items-center mb-8'>
                                         <Image src={"/logo.jpg"} height={'70'} width={'70'} />
-                                        <p className='text-blue-400 text-3xl font-medium'>Admin Login</p>
+                                        <p className='text-blue-400 text-3xl font-medium'>Admin</p>
                                     </div>
 
                                     <div className="mb-6">
@@ -221,7 +227,7 @@ const Admin = () => {
                                         />
                                     </div>
 
-                                    <div className="mb-6">
+                                    <div className="mb-1">
                                         <input
                                             name='password'
                                             onChange={handleChange}
@@ -237,11 +243,11 @@ const Admin = () => {
 
                                     </div>
 
-                                    <div className="text-center lg:text-left">
+                                    <div className="text-center lg:text-left w-full">
                                         <button
                                             onClick={handleSubmit}
                                             type="button"
-                                            className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                            className="w-full inline-block px-32 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                         >
                                             Login
                                         </button>
