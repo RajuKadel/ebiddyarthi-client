@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from "axios";
-// const url = 'https://ebiddyarthi-server.herokuapp.com';
-const url = 'http://localhost:8080';
+const url = 'https://ebiddyarthi-server.herokuapp.com';
+// const url = 'http://localhost:8080';
 //const url='https://1925-113-199-236-154.ngrok.io'
 export const adminLogin = createAsyncThunk('adminLogin', async (data) => {
     const response = await axios.post(`${url}/admin/login`, data)
