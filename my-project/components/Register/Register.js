@@ -48,7 +48,7 @@ const Register = ({ methods }) => {
     }
   }
   return (
-    <div className=" sm:ml-4 w-[95vw] md:w-full over  h-full mt-3 pt-3 mb-1">
+    <div className="transition-all duration-200 ease-out delay-100 sm:ml-4 w-[95vw] md:w-full over  h-full mt-3 pt-3 mb-1">
       <Head>
         <title>Login</title>
       </Head>

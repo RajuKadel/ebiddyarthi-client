@@ -5,6 +5,8 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { handleToken } from '../src/app/Slice'
 import axios from 'axios'
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
 const Home = () => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -16,11 +18,9 @@ const Home = () => {
     async function fetchData() {
       const data = { token }
       // const url = 'http://localhost:8080/checktoken'
-      const res = await axios.post(
-        'https://ebiddyarthi-server.herokuapp.com/checktoken',
-        url,
-        data
-      )
+      // const url= 'https://ebiddyarthi-server.herokuapp.com/checktoken'
+      const url = 'https://1925-113-199-236-154.ngrok.io'
+      const res = await axios.post(url, data)
       if (res?.data?.message === 'success') {
         dispatch(handleToken(res?.data?.token))
       } else {

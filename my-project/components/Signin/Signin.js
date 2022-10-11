@@ -43,10 +43,10 @@ const Signin = () => {
                         <Slider />
                     </div>
 
-                    <div className=" xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-2 md:mb-1 -pt-6  sm:mt-0 sm:pt-0">
+                    <div className=" xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-2 md:mb-1 -pt-6 sm:mt-0 sm:pt-0 transition-all duration-200 ease-out delay-100">
                         <div className={` z-50 ${isLogIn ? 'pt-5 bg-slate-50' : ''} pt-8 sm:pt-1 flex items-center justify-center`}>
                             <Image src={"/logo.jpg"} className='mt-5 pt-4 ' height={`${isLogIn ? '50' : '40'}`} width={`${isLogIn ? '50' : '40'}`} />
-                            <p className={`px-1 font-bold text-xl ${isLogIn ? 'text-slate-600 text-3xl' : 'text-cyan-500'} mr-6 mt-2`}>Ebiddyarthii</p>
+                            <p className={`px-1 font-bold text-xl ${isLogIn ? 'text-slate-600 text-3xl' : 'text-cyan-500'} mr-6 mt-2`}>Ebidhyarthi</p>
 
                         </div>
                         {isLogIn && <Loginform />}

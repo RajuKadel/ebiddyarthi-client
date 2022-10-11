@@ -81,7 +81,7 @@ const Loginform = () => {
     }
 
     return (
-        <form className="shadow-xl bg-slate-50 px-6  lg:px-20  pt-1 sm:pt-2 w-full  h-[70vh] sm:[h-80vh] lg:h-full lg:pb-14  mr-5">
+        <form className="shadow-xl transition-all duration-200 ease-out delay-100 bg-slate-50 px-6  lg:px-20  pt-1 sm:pt-2 w-full  h-[70vh] sm:[h-80vh] lg:h-full lg:pb-14  mr-5">
             <div className="flex mt-20 md:mt-14 flex-row w-full items-end justify-center lg:justify-start "></div>
             <div className="mb-6 flex items-center bg-white border border-gray-300 rounded px-1">
 

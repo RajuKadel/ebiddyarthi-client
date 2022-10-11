@@ -98,9 +98,13 @@ const ScholarshipApply = () => {
       formData.append('fullName', loginData?.fullName)
       formData.append('type', type)
       setProgress(true)
-      const url = 'https://ebiddyarthi-server.herokuapp.com'
+      // const url = 'https://ebiddyarthi-server.herokuapp.com'
+      const url = 'https://1925-113-199-236-154.ngrok.io'
       const data = await fetch(`${url}/photos`, {
         method: 'post',
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
         body: formData,
       })
       setProgress(false)
@@ -131,9 +135,9 @@ const ScholarshipApply = () => {
       className={`  bg-slate-50  px-5 py-5 transition-all ease-out duration-700 mt-12  md:h-[92vh] ${activeSidebar ? 'md:ml-64 pl-5' : 'md:pl-36'
         }`}
     >
-             <Head>
-            <title>Apply</title>
-          </Head>
+      <Head>
+        <title>Apply</title>
+      </Head>
       {slug == 'ugc' && (
         <div>
           <form className="py-8 mt-2 px-6  md:px-6  bg-white shadow-xl backdrop-blur-xl mx-1 lg:w-[78vw] grid grid-cols-1 md:grid-cols-2  gap-4 place-items-center">
